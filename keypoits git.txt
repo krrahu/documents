@@ -1,0 +1,188 @@
+============================================set the GitHub account with git bash=============================================================
+first of all we need to Create GitHub account and integrate it with git bash 
+Question :-  this set relay required or we can type git init and start using the git command for adding, committing, pushing as so on
+Step:- 
+-when user set the GitHub account with git bash need to pass the below command in git bash console and once user set is done user can use IDE terminal or git bash console to use the git commands
+
+git config --global user.name "krrahu"                       --> ( this is  user name of GitHub account)  
+git config --global user.email "rahul.baliyase91@gmail.com"   --> ( this is  user email  of GitHub account)  
+git config --list  --> to check user set up or not
+
+==============================================clone and  remote=========================================================================================
+
+------------clone ------------------
+Q-1 :- how to fetch/copy the remote code i.e. from GitHub to local IDE i.e. visual studio on laptop --> by using clone  git command follow below steps:- 
+
+pre- requisite :- 
+A.  user need to set the GitHub account on git bash when user set the GitHub account with git bash need to pass the below command in git bash console and once user set is done user can use IDE terminal or git bash console to use the git commands
+git config --global user.name "krrahu"                       --> ( this is  user name of GitHub account)  
+git config --global user.email "rahul.baliyase91@gmail.com"   --> ( this is  user email  of GitHub account)  
+git config --list  --> to check user set up or not
+
+
+B. create a folder in local and open it by using any IDE i.e. Vs
+
+Set-up step:- 
+ 1. create a repository in GitHub and open the project which we want to clone.
+ 2. click on the code drop down and copy the project path  (i.e. copy the HTTPS URL)
+ 3. open the terminal on VS  and  clone the project path by using git command-->  git clone "URL"
+ Expected:==> one folder will be created in vs under parent folder  and all files present on remote will display under the sub folder
+ 
+4. Now if  user wants to make some changes in the code from locally i.e. from laptop they need to first navigate to respective folder if multiple folder is    there by using the git command -->cd <filename>
+ - now make some changes in the existing file  or add new file directly from VS or any other IDE
+ - Open the  terminal and add the changes  by using git command -->  git add <file name>
+ - now commit the code --> git commit -m "message"
+ - push the code to remote --> git push -u origin main ( main is main branch)
+ -  go to GitHub application refresh the page  Expected:==> all local folder code should display on remote under repo  i.e. on GitHub 
+
+---------------------------------------------------Remote---------------------------------------------
+Q-2 :- how to publish/send  local code from folder in our laptop  to remote i.e. GitHub under any repository --> using remote and other init command
+
+ 1. create a repository in GitHub and copy the repo path  (i.e. On GitHub :- copy the link of repo (HTTPS) and pass this link on git command )
+git remote add origin <URL> --> example - git remote add origin https://github.com/krrahu/FrontEndApnacollege.git (step 3)
+ 
+ 2. now open the local folder in IDE which we want to publish on GitHub  (i.e. code which is in local laptop and need to push on remote) 
+ 3. on IDE like VS go to terminal and type the git command --> git remote add origin "URL" ( get the URL from step 1)
+ Expected:==> one folder will be created in vs under parent folder 
+ 4. now check main branch is showing or not if not then create by using git command ---> git branch -M main
+ 5. add the files (these are local codes of folder) --> git add <file name>
+ 6. now commit the code --> git commit -m "message"
+ 7. push the code to remote --> git push -u origin main
+ 8. go to GitHub application refresh the page  Expected:==> all local folder code should display on remote under repo  i.e. on GitHub 
+ 
+========================================================= git commands  =========================================================================	
+
+Push  --> to send the changes/code  from local to remote 
+Pull -->  to get the all changes/code  from remote to local 
+
+once we push we need to pull , push is performed from local through git command  and pull is performed form GitHub application as well as from git command
+
+commit --> it means save and commit & push --> save and send/push the code to remote
+
+git --version        --> to check the git version
+git clone "Path URL" -->  to clone the project (we use this to copy the remote code i.e. from GitHub to local on laptop )
+cd Apnacollege-demo  --> to change the directory means to go inside a particular file 
+cd..                 --> to come out to main directory from folder ( step by step it go back from current folder)
+mkdir                --> to create a folder from local i.e. from vs by using git command 
+clear                --> to clear the terminal
+ls                   --> to see all list of files in folder
+ls -a                --> to see hidden file 
+git status           --> it will show the current status of GitHub with branch names
+git add < file name > (example :- git add index.html) --> to add or save the files for  code modified or new any files added  
+git add.             --> adding   all changes in the code  of multiple files at one short  ( not working on Vs, use below)
+git add --all       --> adding   all changes in the code  of multiple files at one short 
+git commit -m "some message" --> to save all the changes i.e. to line up the code or record the code
+git push            --> pushing the changes of code  into repository means to GitHub ( that means from local repo (mobile, laptop)  to remote repo (GitHub) 
+git Pull             -->  to get the latest  code  from remote to local 
+git log .\file name --> to check the log of any particular file 
+Git show .\ file name  it show the changes done in each commit on the file 
+---------------------------------init command ( for Remote) -when  local code from folder in our laptop  to remote) ---------------------------------
+when user create a folder from vs (local repo) and create a new repo ((locakrepo)) from GitHub UI application to link both we use below command on git 
+- git remote add origin <link> -- >use this to create a remote repo 
+- mkdir                        --> to create a folder 
+- git remote -v               --> to verify remote which we have added by using  git remote add origin <link>
+- git branch                  --> to check which branch we are on   
+- git branch -m branchname (e.g.= git branch -m  main) --> to rename the master branch ( note: in default the main branch on GitHub is master so we need to change it name to main )
+- git push  origin branchname {example -> git push  origin main  or  git push -u origin main }  --> to push the code to remote repo from local , here origin is just defining origin of repo , anyways basic command is only git push 
+
+git push -u origin main  --> git push  ( no need to mentioned origin main every time if we use -u  else every time we need to define origin name , just use only --> git push )
+git push  origin main --> git push  origin main ( every time pass this complete command)
+
+- git pull ( e.g.- git pull origin main --> to pull the all sync up code from remote i.e. GitHub to local repo
+
+--------------------------------------------------------branch commands:----------------------------------------------------
+
+- git branch                                          --> to check branch on which currently we are working 
+- git branch -m branchname (e.g. git branch -m  main) --> to rename the master branch ( note: in default the main branch on GitHub is master so we need to change it name to main )
+- git checkout <branchname>                           --> to navigate to specific branch 
+- git checkout -b <branchname>                        --> to create a new branch
+- git branch   -d <branchname>                        --> to delete  a new branch
+
+--------------------------- how to handle the  merge request if there is any conflict (merge conflict)--------------------------------------
+Question:- 
+1. if we create a new branch from GitHub app how it show on local --> we can do it by using git command follow below steps:-
+branch created from GitHub name is --> demo1
+- first navigate to newly created branch i.e. demo1   ---> example :- git checkout demo1
+- now  push it on the branch --> git push --set-upstream origin demo1 ( if we are pushing first on branch else just use only  --> git pus )
+
+2. if we have created  a new  branch from local in VS then how it will  show on remote  --> we can do it by using git command follow below steps:-
+branch created from GitHub name is -->programmingjs
+- first navigate to newly created branch i.e. programmingjs   ---> example :- git checkout programmingjs
+- now  push it on the branch --> git push --set-upstream origin programmingjs ( if we are pushing first on branch else just use only --> git pus )
+   
+3. Is merging can only be done from local i.e. through git command  only not from GitHub application?-->
+4. after solving merger issue and pushing the code , Is changes will always see on main branch not on feature , if yes the why because I believe code should be same on both since we accepted from both branches, -->
+
+--------------------------First Way of merge request if there is any conflict (merge conflict:---------------------------------------------
+
+when user wants to merge the changes from 2 branch but both are of same file only branch is different (this process of merging is called merge conflict), we can do it by 2 ways one form git command and second from GitHub application by creating PR i.e. pull request
+
+git diff    <branch name> --> to check the difference between 2 branches 
+git merge   <branch name> --> to merge 2 branch 
+
+Steps:- ( from  terminal by using git command)
+1. navigate  to main branch (git checkout main) > add some code in html ( git add index.html)> commit the changes  (git commit -m "to main branch")
+
+2.  navigate  to feature1 branch  (git checkout feature1) > add some code in same html ( git add index.html)> commit the changes  git commit -m "to feature1 branch-add dropdown"
+
+3.see the difference b/w both branch (git diff main )
+
+4. merge request --> it just used to check if there is any conflict b/w branches so that before commit we can solve it 
+- now merge it ( git merge main --> when we are on feature1 branch and wants to merge with main ) or  
+( git merge feature1 --> when we are on main branch and wants to merge with feature1) 
+- git status --> now this command to cross-check or reconfirm which branch changes is going to be merged
+
+Note:-  
+
+- when changes is done on same file from 2 different branches then while merging the code we will get merge conflict, to solve this we need to accept the changes from any one branch or from both branch as per user choice  
+
+5.  now adding  the index.html file after solving merge conflict and then checking the status -> ( git add index.html  and then git status)
+
+6. now commit the code  and check the status --> git commit -m "add the changes from branches"  and the git status
+
+7.  now check the diff --> git diff main  (to check if still there is difference , if not ready to merge from main branch)
+
+8. navigating to main branch and merging the main branch with feature1 branch
+git checkout main --> and then--> git merge feature1
+
+query :- why we moved to main branch , why we can't push the code after step 6 only.
+
+9. push the changes --> git push
+
+----------Second ways :-  form GitHub by creating pull request ( refer the document )
+- do some changes in local repo and then add the files> commit it > push it 
+- Pull request creation :- Now go to GitHub application  we will see compare and pull and all available branches
+- Click on compare & pull request 
+- Now add title if user wants and Click on pull request
+- Click on merge pull request 
+- click on confirm merge request  -->
+Expected:- pull request successfully merge & closed and Changes reflected on main branch 
+
+
+
+-------------What is merge request and when merge request will performed? ----------------------
+
+merge request --> it is a request to merge the changes on other branch i.e. it is request for developer to merge his sub branch to main or some other branch
+
+when merge request will performed:- 
+ On GitHub when there is any Repo/project  created then by default there will be only one branch and that branch will be main, now as developer if will directly worked on main branch and if we faces some tech or any error then might it effect  the branch so instead of working on main , we used to create one more branch from GitHub or terminal and this branch will be clone of main branch all code will be same and now developer will work on sub branch and when if  
+add some file or modified existing then commit and push , after succefully push user will get merge request on GitHub application.
+this merge request is nothing just a request for developer to merge his sub branch to main or some other branch.
+ 
+
+Question:-  if we merge sub branch on other sub branch not on main still we see merge request? ( 2 sub branch and 1 main branch)
+how we can close/delete the branch from GitHub and terminal? --> from GitHub while  doing merge we will have option to close merge and from terminal using git command --> git branch   -d <branchname> 
+
+test_auto project :- 
+i have created as faeture1 and added one index.html file and the commit & push it on main branch and then from GitHub appl created a merge request and done merge request on main branch   --> but still index.htm file is not  visible on main branch why ?
+
+
+cmpl_auto_test_automation project :-  similar issue on 
+added one json file on smoketest1 branch followed by commit & push and then after merging it on main the  same  json file is not visible on main branch but available on smoketest1 branch why?
+
+- if we wants to run a particular branch without merging is it possible? --> for e.g. i have added few code on smoketest1 branch can we run it through pipeline without merging ?
+- can we run code without pipeline on GitLab?
+
+why changes is not reflecting on main after closing merge request
+
+==============================================================================================================================================
