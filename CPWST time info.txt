@@ -1,0 +1,145 @@
+===============Newman installation (Day 1 part 2 video from25 min to 50  min ==== ===========
+ 
+
+=============== JSON installation (Day 1 part 1 video from 1 hr to 1.12 hr   min ==== ===========
+
+
+ Note: go to json folder and run cmd then give the command json-server --watch db.json  when json server is down
+
+======================jenkinwars set up=============================
+
+
+===================selenium script to check o/p in console===================
+
+Syntax:mvn -Dtest=JSONserver.CreateAnEmployeefromJUNIT test
+
+run in CMD  [here JSONserver is package name and CreateAnEmployeefromJUNIT is Junit Test case name
+======================LINKS========================================
+ 
+
+======================Maven and java   validation===================
+mvn -v
+
+ 
+Node Package Manager
+
+npm -v
+
+======================Auth token validation===================
+
+
+
+
+=============================extras====================================
+header -->UN/PWD [H]
+body->when user wants to post any thing [D]
+
+test--> it will take data from response of request
+
+first postman program -->day 1 1.26 hr to end of video (000CPWSTExercise1JsonServerAdi)
+
+first postman program -->summary  -->day2 first 6 min 
+json server data-driven -->day2  6 min  to 21 min followed by assertion till 25 min
+dynamic variables and monitoring-->(Day 2 part 1 video from 21 min  to 25 min) --> random value creation like otp, names
+postman rocket chat with data-driven--> day 2 from 50 min to end of video
+
+
+
+ monitoring on postman-->(Day 2 part 1 video from 25 min  to 53 min)
+restassured (postman)-->(Day 2 part 1 video from 1 hr  to 3.13 hr )
+
+ restassured (swagger student details ) -->(Day 2 part 1 video from 3.13 hr  to end of video )
+ restassured (swagger filter program) -->(Day 2 part 2 video from 18 min  to 48 min )
+restassured (data driven test from excel) -->(Day 2 part 2 video from 48 min  to 1.7 hr)
+
+restassured (rocketchat) -->(Day 2 part 2 video from 1.7 hr  to 2.6 hr)
+Assertion:
+ 
+
+
+
+karate and jenkin cofiguration--> day 2 part 2 from 2.39 to end of video continue to day 3 part 1 first 50 min
+to  see how CI work -->day 3 part 1 from 50 min to 1.20 hr
+Auth2 --> from 1.20 hr to end of video (day 3 part 1)
+To change the directory;
+ 
+
+========================environment  Variables===================
+
+pm.environment.set("variable_key", "variable_value");  --> to set variable in environment 
+pm.environment.get("variable_key"); --> get or use  the variable in diferent different request
+
+// set environment variables []
+pm.environment.set("Cus1_Name_Var",jsonData.name);
+//pm.environment.set("Cus1_Name_var",firstCustname);
+pm.environment.set("Cus1_ID_Var",jsonData.customerid);
+//pm.environment.set("Cus1_ID_Var",Custid1);
+pm.environment.set("Cus1_UN_Var",jsonData.username);
+
+
+// get environment variables []
+  // var envid = pm.environment.get("Cus1_Name_Var");
+   var envid = pm.environment.get("Cus1_ID_Var");
+  // var envid = pm.environment.get("Cus1_UN_Var");
+
+
+
+
+
+
+// set environment variables []--> we will storing the Env variable only when we use request POST (Create) and PUT (update)
+// get environment variables [] --> using of env value 
+
+if we update anything then again we have to set and get the env variable 
+
+// set environment variables []
+// get environment variables []
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+1. Create an employee 
+	(capture the id and the name in some environment variable)
+assert that the status code is 201)
+
+2. Get and check if the employee exists
+
+	(and browse through the response and check if the same id and name are there are not)
+Pass..
+if it does not match - fail
+(Assertion)
+
+
+3. Update the employee
+
+Same id (variable) - modify the name
+
+4. Get and check if the employee is updated
+
+	(and browse through the response and check if the same id and the modified name is there are not)
+
+5. Delete the employee
+
+5.	Get and see if the employee is deleted or not.
+Karate practice;
+
+
+
+How to create global variables in postman?
+
+
+-----------------------------------------------------------------
+
