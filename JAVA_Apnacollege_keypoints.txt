@@ -1,0 +1,248 @@
+what is time complexity in java? --> need to revise this? when we can use static keyword?
+
+OOPS--> inheritance, encapsulation, polymorphism, Abstraction
+Collection framework - set(tree set,hash set, linked hash set) ,list(Array list,linked list,vector) , queue
+Exception handling--> 
+file handling-
+String handling
+Array, string, functions,  keywords, blocks, class, object, scanner, interface, abstraction, abstract class, casting, Data types, Generics, Synchronisation
+access specifier --> public, private, default, protected
+methods -
+methods overloading ( same method with different parameters)
+methods overriding
+constructor-constructor overloading ( same constructor with different parameters)
+class members --> static and non-static i.e instance members
+variable --> local and global (static and non-static)
+recursive
+Loops-->for loop, while 
+operator
+conditional statement--> if else, switch, break
+Multithreading
+scanner--> 
+Scanner input = new Scanner(System.in); Here, we have created an object of Scanner named input . The System.in parameter is used to take input from the standard input. It works just like taking inputs from the keyboard.
+example :- 
+Scanner sc= new Scanner(System.in);
+int size=sc.nextInt(); // here nextInt() is a method of scanner class and we are calling it to take input value from user i.e through keyboard and store it in reference variable like size
+
+
+Lecture 2-
+- in java calculation is done from left to write
+- in Java, it does not follow BODMAS calculation logic.
+- in Java, we take input from the scanner class.
+Scanner sc=new Scanner(System.in);
+String name=sc.next();      --> will print only first word from sentence
+String name1=sc.nextLine(); --> will print completed sentence
+
+Lecture 3- (conditional statement--> if, else, else if, switch, break)
+- fixed word means keywords we can not change it. e.g-->if, else -
+- break statement is used to break the execution where the condition comes true.
+
+Lecture 4 - (for loop, while loop, do while loop)
+-
+
+Lectures 5 and 6 - all pattern programs
+- row will be --> outer loop
+- column will be --> inner loop
+so whenever we need to print any pattern first check the row and column values and define it  as per the requirement
+example -
+if we want to print the below  pattern then row =3 (outer loop)  and column =5 (inner loop) 
+*****
+*****
+*****
+if we want to print the below  pattern then row =3 (outer loop)   and column =3 (inner loop) 
+***
+***
+***
+
+Lecture 7 and 8 - (funtions)
+- what is the difference between function and method?
+-  function name should never be the keywords of java 
+- it should be camel case like CamelCase
+- function should always return data type by using keyword return;
+
+
+Lecture – 9 --> time complexity and space of code
+Lecture – 10  (Arrays)-1D  --> revisit for program practice
+- here we need to tell only the size of the array because it is defined as a single row.
+-Array syntax--> type []arrayName=new type[size;] --> type is data type
+example --> int [] marks =new int[3];
+
+- in array, default initialization is done if we do not declare the value 
+
+Lecture 11 (2D Array) --> revisit for program
+- it is defined in rows and columns, we  
+- 1 int = 4 bytes  
+
+Lecture 12 (strings) --> Compare string, find sub-string value, concatenation of string
+//Compare the string
+- food1==food2
+- food1.compareTo(food2)==0)--> use this method instead of comparing with == because in compareTo method always it give ture value and for == somtimes it give false value
+- string are immutable --> 
+It means we  can not modify the string once we create it, 
+We can not change it i.e. delete or add if we want to delete or add then we need to create a new string
+- Lecture 13 (stringsbuilder) -->
+
+
+Lecture 14 (Operators & Binary Number System) --> need to revisit the binary conversation to decimal or decimal to binary 
+
+& - This is bitwise  to add two different or same binary like (A&B) or (A&A) -->o/p:  c=(A&B)
+&& - this logical AND to check 2 or more conditions like (a>b)&& (b>c) && (d>e) -->o/p: True or false
+
+Lecture - 15 (Bit Manipulation) (need to revisit)
+
+Lecture - 16 (Sorting in Java, Bubble Sort, Selection Sort & Insertion Sort ) (need to revisit for  few not all program)
+
+Lecture - 17 (Recursion in One Shot | Theory + Question Practice + Code | Level 1 - Easy) (need to revisit for program practice)
+Lecture - 18 (Recursion in One Shot | 9 Best Problems)  (need to revisit for program practice)
+Lecture - 19 (Recursion
+
+Lecture - 20 to 21 (will see later pure programming) 
+Lecture 22 - Merge Sort | For Beginners  (need to revisit for program practice)
+Lecture 23 - Quick Sort For Beginners (need to revisit for program practice)
+
+Lecture 24 -Java OOPs in One Shot | Object-Oriented Programming 
+class, object , funtions , all type of constructor, 
+4 oops concept:-
+in java we dont need to write the destructor because java have inbuild garbage collector.
+1.Polymorphism 
+-  compile time Polymorphism -->method/function overloading
+ error will come while running the program 
+ multiple   function with same name  is one  class with different parameters is called CTP.
+ if return type can't be same if it is same the parameter must be different.
+ if return type is different then parameter cab  be same.
+
+-  run time Polymorphism -->method/funtion  overriding 
+error will come after running the program 
+
+2. Inheritance 
+
+3. Encapsulation --> e.g - class --> group of variables and methods/funtions defined in class
+By encapsulation we can perform data hiding in Java like access modifier
+- Inbuilt package -> java .util
+- Our package created by user
+- access modifier--> (public, default, protected, private->getter &setter)
+
+4. Abstraction:- 
+It means showing the important stuff to the user and hiding the non important stuff from user  (like ATM machine)
+
+- Pure abstraction is the interface (Inteface)
+ in interface, we can not create the object 
+interface can only implement
+it can first extends and then implement
+
+question --> what is difference between data hiding and Abstraction?
+
+Lecture 25- ArrayList
+Array -fixed size  
+Array list - not fixed list, size is variable can changes, we can filled up values till memory full , heap,java.util.arrylist
+
+Lecture 26-Java Collections Framework  --> data structure and algorithm
+ classes + interface
+- we can not create object if interface  
+
+Lecture 27- Introduction to Linked List | Data Structures & Algorithms 
+LinkedList Scratch Implementation --> 1 to 38 min  --> ( need to revisit for code)
+size --> 38 min  -->--> ( need to revisit for code)
+collection function for LinkedList --> 41 min
+
+Lecture 28- How to Reverse a Linked List? | Iterative + Recursive 
+Iterative + Recursive --> program of this need to be written in lecture 27 of Scratch Implementation --> ( need to revisit for code)
+
+
+Lecture 29- Most IMPORTANT Linked List Questions for Placements  --> ( need to revisit for code)
+
+
+---- data structure topics--------------
+Lecture 30 - Stack Data Structure in One Video -->(document not downloaded) 
+
+stack implementation in  linkedlist form --> ( need to revisit for code)
+stack implementation in Array list form --> ( need to revisit for code)
+
+stack implementation by java collection framework --> time 23 min)  --> ( understood, need to write the code in Eclipse)
+Push new element at bottom of stack  , Here we can’t remove 1 so we need to remove 3>2>1 and then add 4 >1>2>3 --> (understood need to write the code in Eclipse)
+Reverse the element of stack --> ( need to revisit for code)
+
+Lecture 31 -Complete Queue Data Structure | in One Shot 
+
+java collection framework implementation 
+
+Lecture 32 - Binary Tree in Data Structures | All about Binary Tree | DSA Course  --> not gone through video
+
+linear (stack,quesue, array) and binary (
+-  no children means it is leave 
+- parent node--> left chile and right chile 
+-ancestors --> last children ka parents
+-  level and depth 
+-  subtree
+- preorder means (with and without null)--> first  root will come then left and then right
+-  inorder
+- postorder 
+-level order	
+- count of nodes --> by using recursive method
+-  sub tree of another tree --> need to understand revisit (1.10 min)
+
+Lecture 33 -Binary Search Trees | BST in One Video | Java Placement Course | Data Structures & Algorithms -->(document no there)--> not gone through video
+-Binary Search Trees - program 1
+- Search in a BST  - program 2
+- delete node - program 3
+- print in range - program 4
+- root to leaf path - program 5
+
+Lecture 34 - HashSet in Java | Hashing | Java Placement Course | Data Structures & Algorithms
+
+Lecture 35 - HashMap in Java | Hashing | Java Placement Course | Data Structures & Algorithms  
+--> code was written by using an inbuild collection
+-  what is entrySet() in hashmap?
+
+Lecture 36 - HashMap Implementation in Java | HashMap | Java with DSA   --> (revisit to write the code in Eclipse)
+- function of HashMap --->put(), get(),containsKey(),remove(),size(),keySet()
+
+- LinkedList<Node> 
+- The code in this is not an inbuild collection it is logic written by us to implement  HashMap
+- it is implemented internally as an array of my linked list
+- rehashing means converting a small array into a bug array.
+- code from 25 min 
+
+Lecture 37 - Hashing in Java | One Shot | 5 Best Questions --> no document 
+-  usually, we use hashing when there is frequency, common value, unique, 
+- Here code is written by using  hashmap and hashcode 
+- what is the difference between HashMap and HashSet? 
+HashMap--> It is a Key, value pair 
+HashSet --> union program ,
+a unique value is the store
+
+subarray program --> 1.5 min ( revise)
+
+Lecture 38 -Trie Data Structure | Java DSA Course
+
+---write the syntax of all type of Array and DATA structure 
+array 
+Syntax--> Datatype [] ref varaible= new Datatype[length of array];
+int [] a= new int [3]; --> 1D
+int [][] a= new int [3][]; --> 2D
+
+int [] a= new int [4]; define lenght of aray now add values it like a[0]=7;a[1]=2;
+
+ArrayList
+LinkedList
+
+
+Lecture 38 -
+-------------------------------------
+to access the methods of class we are creating an object.
+e,g:
+ArrayList al= new ArrayList(); -->
+- here ArrayList  is class , al reference variable ,ArrayList () is method and new keyword to create object 
+- to access the method of ArrayList  class we have created object 
+- to call method al.
+
+2. Array list --> when dynamically size increase 
+ ArrayList al= new ArrayList();
+-  we use size method to get the size of arraylist.
+- 
+3. normal Array --> fixed size i.e hard code value
+- int []arr=new int [4];
+arr[0]=1; // declaration,
+int []arr1= {1,2,3,4,5,6};// initiazling  and declaration 
+- we use lenght methoda to get the size of array
+
