@@ -1,0 +1,304 @@
+ :-
+--------------------- case creation API (POST call)---------------------
+{
+    "lastName": "lord",
+    "bookingID": "20432966",
+    "email": "rahul.kumar@tui.co.uk",
+    "departureDate": "2024-06-08",
+     "contacts": {
+        "mobileNumber": "8623017888"
+    },
+    "problems": [
+        {
+           "problemID": 1,
+            "area": "flight",
+            "category": "checkin",
+            "subcategory": "airport",
+            "reason": "closed",
+            "description": "R-308,manual1",
+            "flightLeg": "inbound"
+        }
+    ],
+    "files": []
+}
+
+--------------------- booking deatils API (GET call)---------------------
+[
+    {
+        "bookingId": {
+            "system": "C4C",
+            "id": "9021134911",
+            "objectId": "D918766DA5061EEE9AA407D4CEC1AA07"
+        },
+        "originBookingId": {
+            "ownerEntityId": "UK",
+            "system": "ATCOMRES",
+            "id": "20432966"
+        },
+        "bookingStatus": "Booked",
+        "distributionChannel": "Direct sales",
+        "startDate": "2024-06-08T12:00:00+00:00",
+        "endDate": "2024-06-20T12:00:00+00:00",
+        "arrivalDate": "2024-06-08T12:00:00+00:00",
+        "departureDate": "2024-06-19T12:00:00+00:00",
+        "salesOrganisationId": "130000",
+        "currency": "GBP",
+        "branding": {
+            "brandCode": "BTPL",
+            "brandDescription": "TUI UK Platinum Package"
+        },
+        "destinationAirportCode": "CUN",
+        "numberOfParticipants": "2",
+        "numberOfAdults": "2",
+        "numberOfChildren": "0",
+        "numberOfInfants": "0",
+        "totalSalesPrice": {
+            "amount": "4611.200000",
+            "currency": "GBP",
+            "currencyName": "Pound Sterling"
+        },
+        "totalFees": {
+            "amount": "-50.000000",
+            "currency": "GBP",
+            "currencyName": "Pound Sterling"
+        },
+        "totalWithoutFeePrice": {
+            "amount": "4661.200000",
+            "currency": "GBP",
+            "currencyName": "Pound Sterling"
+        },
+        "agency": {
+            "agencySystemKey": {
+                "ownerEntityId": "UK",
+                "system": "ATCOMRES",
+                "id": "UK_ATCOMRES_H6265"
+            },
+            "CRMAgencyKey": {
+                "system": "C4C",
+                "id": "6874451081",
+                "objectId": "C32B9B177EAB1EDF8BC1766A5E32EB13"
+            },
+            "agencyType": {
+                "code": "ZAG",
+                "text": "Agency"
+            },
+            "formattedName": "",
+            "agencyName": "NBtstppe15May25TEst",
+            "agencyId": "6874451081",
+            "city": "",
+            "country": {
+                "code": "",
+                "name": ""
+            }
+        },
+        "salesOffice": {
+            "id": "",
+            "objectId": "00163E6D89DB1EE9AAA78583B7DBC535",
+            "name": "",
+            "distributionChannelCode": "01",
+            "distributionChannelName": "Direct sales",
+            "salesOrganisationId": "130000",
+            "salesOrganisationName": "TUI UK & Ireland",
+            "markedForDeletion": false
+        }
+    }
+]
+
+--------------------- Case deatils API (GET call)---------------------
+[
+    {
+        "id": "3050597",
+        "objectId": "A7E609FCDAC01EEFA1C8BFBCB1C15A1F",
+        "subject": "TUI Customer Services",
+        "category": "source-market",
+        "status": "new",
+        "irrelevant": false,
+        "customerId": [
+            {
+                "ownerEntityId": "UK",
+                "system": "C4C",
+                "id": "6895284163"
+            }
+        ],
+        "teamId": "1351100",
+        "customer": {},
+        "complaintContactPoint": {
+            "address": {
+                "street": "Gilespie Crossroads",
+                "houseNumber": "",
+                "buildingName": "",
+                "subBuildingName": "",
+                "postalCode": "BN18 9DN",
+                "city": "Olney",
+                "country": "United Kingdom"
+            },
+            "mobile": ""
+        },
+        "receivedDateTime": "2024-10-09T13:54:35.0000000Z",
+        "raisedDate": "2024-10-09",
+        "webformId": "CA_SM_UK",
+        "originBookingKey": {
+            "ownerEntityId": "UK",
+            "system": "",
+            "id": "20432966"
+        },
+        "totalCompensation": {
+            "amount": "0.000000",
+            "currency": "GBP",
+            "currencyName": "Pound Sterling"
+        },
+        "resolutionAmountTotals": [],
+        "complaintReasons": [
+            {
+                "id": "3050628",
+                "subject": "TUI Customer Services",
+                "originBookingId": {
+                    "ownerEntityId": "UK",
+                    "system": "",
+                    "id": "UK_20432966"
+                },
+                "irrelevant": false,
+                "originSegmentId": "UK_20432966_3",
+                "topicKey": "CC-COM-FLG",
+                "issueKey": "CC-COM-FLG-CHK",
+                "reasonKey": "CC-COM-FLG-CHK-CLO",
+                "detailedReasonKey": "",
+                "responsibleParty": "none",
+                "justifiedIndicator": false,
+                "occurrenceDate": "2024-10-09",
+                "resolutions": []
+            }
+        ],
+        "brand": "",
+        "sourceMarket": "UK"
+    },
+    {
+        "id": "3039705",
+        "objectId": "E346102A575A1EEF8BAFAB9D3B2A004B",
+        "subject": "TUI Customer Services",
+        "category": "in-destination",
+        "status": "new",
+        "irrelevant": false,
+        "customerId": [
+            {
+                "ownerEntityId": "UK",
+                "system": "C4C",
+                "id": "6895284163"
+            }
+        ],
+        "teamId": "153201",
+        "customer": {},
+        "complaintContactPoint": {
+            "address": {
+                "street": "Gilespie Crossroads",
+                "houseNumber": "",
+                "buildingName": "",
+                "subBuildingName": "",
+                "postalCode": "BN18 9DN",
+                "city": "Olney",
+                "country": "United Kingdom"
+            },
+            "mobile": "+448623017888"
+        },
+        "receivedDateTime": "2024-06-18T14:16:44.0000000Z",
+        "raisedDate": "2024-06-18",
+        "webformId": "CA_TDX_UK",
+        "originBookingKey": {
+            "ownerEntityId": "UK",
+            "system": "",
+            "id": "20432966"
+        },
+        "totalCompensation": {
+            "amount": "30.000000",
+            "currency": "GBP",
+            "currencyName": "Pound Sterling"
+        },
+        "resolutionAmountTotals": [
+            {
+                "method": "bank-transfer",
+                "total": {
+                    "amount": 30,
+                    "currency": "GBP"
+                }
+            }
+        ],
+        "complaintReasons": [
+            {
+                "id": "3039790",
+                "subject": "TUI Customer Services",
+                "originBookingId": {
+                    "ownerEntityId": "UK",
+                    "system": "",
+                    "id": "UK_20432966"
+                },
+                "irrelevant": false,
+                "originSegmentId": "UK_20432966_1_SJ05_1",
+                "topicKey": "CC-COM-ACC",
+                "issueKey": "CC-COM-ACC-ROM",
+                "reasonKey": "CC-COM-ACC-ROM-QUA",
+                "detailedReasonKey": "CC-COM-ACC-ROM-QUA-BAT",
+                "responsibleParty": "none",
+                "justifiedIndicator": false,
+                "occurrenceDate": "2024-06-18",
+                "resolutions": []
+            },
+            {
+                "id": "3039793",
+                "subject": "TUI Customer Services",
+                "originBookingId": {
+                    "ownerEntityId": "UK",
+                    "system": "",
+                    "id": "UK_20432966"
+                },
+                "irrelevant": false,
+                "originSegmentId": "UK_20432966_3",
+                "topicKey": "CC-COM-FLG",
+                "issueKey": "CC-COM-FLG-CHK",
+                "reasonKey": "CC-COM-FLG-CHK-CLO",
+                "detailedReasonKey": "",
+                "responsibleParty": "none",
+                "justifiedIndicator": false,
+                "occurrenceDate": "2024-06-18",
+                "resolutions": []
+            },
+            {
+                "id": "3039706",
+                "subject": "TUI Customer Services",
+                "originBookingId": {
+                    "ownerEntityId": "UK",
+                    "system": "",
+                    "id": "UK_20432966"
+                },
+                "irrelevant": false,
+                "originSegmentId": "UK_20432966_16",
+                "topicKey": "CC-COM-FLG",
+                "issueKey": "CC-COM-FLG-EXP",
+                "reasonKey": "CC-COM-FLG-EXP-ENT",
+                "detailedReasonKey": "CC-COM-FLG-EXP-ENT-UAV",
+                "responsibleParty": "tui",
+                "justifiedIndicator": false,
+                "occurrenceDate": "2024-06-18",
+                "resolutions": [
+                    {
+                        "date": "2024-06-18",
+                        "type": "compensation",
+                        "method": "bank-transfer",
+                        "resolutionAmount": {
+                            "amount": "30.000000",
+                            "currency": "GBP"
+                        },
+                        "reclaimableIndicator": "no",
+                        "acceptedBy": "customer",
+                        "recoverableAmount": {
+                            "amount": "30.000000",
+                            "currency": "GBP"
+                        },
+                        "status": "active"
+                    }
+                ]
+            }
+        ],
+        "brand": "",
+        "sourceMarket": "UK"
+    }
+]
