@@ -1,0 +1,238 @@
+Spike -->CF-15948:
+
+call with prince:=
+
+Step 1 - Use already in place tibco automation to create fresh booking
+Step 2 - Automate CA API to cretae case to a booking
+Step 3 - Validate via API/UI
+
+TRIPS framework is most suitable for CA.
+Cucumber, TestNg, Java 11, maven, APIs only, no UI, XRay Integrated, JIRA, Integrated, Teams Notifications Integrated.
+
+
+-----------------------------------------------------------------Endpoints --------------------------------------------------------------------------
+authentication --> POST Call -> GET  call of AWS API --> compare with get call of C4C APIs
+
+AWS APIs:-
+
+BOOKING_API_DEV folder:- 
+
+https://test.api.tui/customer/customer-data-management/bookings/20311281       --> Booking api
+
+https://test.api.tui/customer/customer-data-management/bookings/20311281/owner --> Customer details Api 1 ( there is bit difference in response  between 1 and 2)
+
+https://test.api.tui/customer/customer-data-management/bookings/20311281/owner --> Customer details Api 2
+
+https://test.api.tui/customer/customer-data-management/bookings/20311281/segments  --> segment details 
+
+
+
+COMPLAINT_CASE_ECS folder:-
+
+https://my327968.crm.ondemand.com/sap/c4c/odata/v1/c4codataapi/CustomerOrderCollection?$filter=BkBookingCode eq'DK_20311281'&$format=json   --> GET Call
+Comment -->  this c4c api but in response there is any required parameter which we can use 
+
+https://test.api.tui/customer/case-management/complaintselectors   --> GET Call
+Comment -->  what is this for ?
+
+https://dev.api.tui/customer/case-management/complaintcases/DE -->POST CAll
+Comment --> Case craetion submit request 
+
+https://test.api.tui/case-mngt-complaint-case-api/complaint-casesoriginalBookingId=20311281&ownerEntityId=DK   --> GET Call
+-->  Failed to resolve API Key variable request.header.x-apikey , getting no response 
+
+https://complaint-case-api.dev.case-management.local:5000/case-mngt-complaint-case-api/complaint-cases?originalBookingId=20311281&ownerEntityId=DK 
+----------------------------------------------------- ,
+Spike/Task
+Summary:-  To finalize the approach and prepared the road to achive the Automation.
+Action:- Here we will dicuss about  the approach and finalize the road map and also we will check if any other APIs required of c4c as well.
+
+Outcome -->  we will start creating task and implement the thing and if any other API need we will request C4C 
+ 
+
+- right now what ever the APIs jag give to me is CA not of c4c
+
+-------------------------------------------------------------session on automation---------------------------------------------------------------------
+session API automation using poastmn from bhargavi
+( 1 to 15 min -run the request or script at collection level in postman only and neuman to generate the report ) 
+( 15 min to 16 min - run the script by using gitlab and pipeline  --> interegarte with xray
+
+Session API automation using poastmn from CPWST 
+ for postman overview from CPWST -->till 98 min  (part 1 video of Day1 training)
+postman execsie 1 -->1.27 min to 1.26 (part 1 video of Day1 training)
+ exercise 2  solution --> from 1.36(part 1) to 17 min (part 2 )  and neuman run -->from 
+
+
+---------------------------------------------------------------------------------------------------------------------------------------------------
+https://www.youtube.com/watch?v=juuhb3W8xT4
+if console not evalutae the it will not print means if condotion is false then it will not print in console.
+
+variables, , console -->
+funtions--> 15 min to 45 min funtions ( from 40 min JS to JSON)
+array - 45 to 56.34 min 
+
+loop- 57 to 1.1 hr 
+
+postman snippets --> 1.10 hr to  1.20 min
+how to read the response -->  1.20 to end
+
+--------------
+How to write API test cases in Postman using JavaScript
+https://www.youtube.com/watch?v=6uSTSfLjstI
+
+
+booking id set 
+
+Responsetotalcompensation = Math.round(bodyData[0].totalCompensation.amount)
+
+
+--------------------------------------------------------------------------------------------------------------------------------------
+ttps://developer.rocket.chat/reference/api/rest-api/endpoints
+
+
+pre-requisite API:-  
+1. POST call API for 2 different token generators:-
+first   --> for token generator passed to  case creation & booking API
+second  --> for token generator passed to Case Api 
+
+2. POST call --> for case creation (submit--> case creation)
+
+
+3. Get booking API  --> for booking details
+
+4. GET case API  --> for complaint and complaint reasons-related info
+
+-------------------------------------------------------------------------------------------------
+https://www.youtube.com/watch?v=2S0gK6zwc1E --> // to generate randon unique number
+ 
+-----------------spike on how we can efficiently use booking creation API in out existing framework--------------------------------
+- Spike - Automation testing for - How we can automate the  booking creation flow and used it for another request. 
+
+  Automation task - in-progress
+-  i want to see the customer details which api we can use ?
+-  by using booking creation API --> we can send booikng id ,dept date from request body to other request 
+lastname & email we will make constant
+
+- question :-
+from where we will get the key value of JSON data for each SM if we need to prepare test for any other SM .
+
+we need to give valid customer id which available in master data
+1. segment key --> Is it just random  value or you are creating it , if yes how we wil get or generate this for each SM
+is it mandatory to provide 
+2.  do we can give customer details randomnly so that if it matches it will create customer or new customer will be created 
+comment --> rightnow we need to give valid customer id which available in master data lese it show blank data in c4c
+we can create one customer or take any existing customer and use this customer every time  while create bookings from postman.  
+
+3. why dept date is not updating in c4c as per input i have passed in json data.
+why booking status in onrequest but i have status as booked
+
+4. is there any API from whcih in response body we can customer deatils like fn ln, dept date
+5.  when run collection through neuman and if lock the system execution stopped once we open system the execution will be reinitiate --> is there any way by 
+which if system locked even after execution keep running in background.
+
+6. we can create one test automation for customer so that when ever we create a booking this test data is get linked this will help us to mentianed the same customer name in all request.
+same way we choose of fix dept date for SM booking and TDX we need to get live sent same data for all request
+
+
+-------------------------------------demo for QA community-----------------
+booking data :- 
+(SM booking)
+16392804 to 16392809
+
+163928011 UK_163928020
+
+
+TDX booking -
+UK_20432966 ,UK_19789601
+
+UK_19549873,UK_21395448,UK_18178017 ,UK_20521430
+
+
+
+
+without report --> (we will able to execution step om cmd console)
+newman run Demo_neuman.postman_collection.json -e CA_Environment.postman_environment.json 
+
+with report    -->(we will not able to execution step om cmd console , we can at the end on html reports)
+newman run Demo_neuman.postman_collection.json -e CA_Environment.postman_environment.json -r htmlextra --reporter-htmlextra-export index.html
+
+
+
+
+use data driven --> by using this we can store the reasons in file from file we fetch reason in direct to body --> 
+instaed of decalring our own local variable and comparing with env variable we use JSON and comapre it response 
+
+like case category, case status and comapring it with response instead of store all our decalre varibale in JSON and use it in comapring the with response that 
+like set and get  varaible -->  we will call get value and it will be compare with response 
+in JSON -->  we will call  value from json and it will be compare with response 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+--------------------------------------------------java workshop --------------------------------------------------
+to store value we use refer varialbe 
+
+------------------------------------------sahipro kt--------------------- (ctrl+enter)
+TUIAUtomationframework
+1.business library ( do not use html use only fiori
+-  --> common method like un/pwd
+-  --> to write the methods
+
+2. 
+ element repository --> to store xpath of web element
+ 
+
+
+questions:- 
+Nibedita:- 
+at last just ask how you are writiing the test case on csv file,
+how end to end flow work including git deployment  just one live example 
+
+git lab integration 
+
+how you are verifying email like Ack alert i mean 
+
+
+------------------------------------------------java script-----------------
+lecture 1:- var, let , const
+lecture 5:- 
+arrow funtion 
+arr.for each (call back funtion)
+
+
+
+
+Synchronous programing Call back 
+give data from data base 
+when we are sending 123 we get data from DB of id 123 , similar to 1
+
+ when ever we want to pass the argument we can't write like we need to create Arrow funtion  as define  below
+promise is an object in js which have total 3 stages , when user  call these 3 stages funtion of promise object   state will display on console i mean realtime 
+stage 1 pending  
+stage 2 fulfilled or resolved
+stage 3 rejected  ( erro will shows)
+
+-  to use callback function  and promise chain function we don't put this under any function but to use asynwait () we need put this under any function  and then first we need call this function at least one time and then we can access asynwait () and this unnecessary call in js to over come we have IIFE 
+
+
+
+
+- data is not in readable formate when we use fetch () so we are using JSON() to make data in readable formate 
+fetching of data and converting into json formate 
+
+same work by using promise chain
