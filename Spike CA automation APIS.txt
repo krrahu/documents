@@ -1,0 +1,882 @@
+https://developer.rocket.chat/reference/api/rest-api/endpoints
+
+-----------------------------------------------------recording for CPWST for reference ---------------------------
+ 
+
+Day 1 recording :-
+-  postman and Neuman -->time is from last --> last 73 min to last 41 min and 41  to 39 min for brief ,
+-  data driven --> from 26 min to 13 min  i.e. 143.30 min to 158 min --> column name will be the variable name
+from postman and Neuman we can use csv file for data driven and there should only file that can be used for all request with different variable name
+
+-  how to access the JSON data :- 160 min to 163 min
+-  for development use postman tool and to run use Neuman cmd line 
+
+pm.environment.set("variable_key", "variable_value"); like --> pm.environment.set("CaseApiToken", value2);
+pm.environment.get("variable_key");
+
+
+Day 2:- 
+
+summary, dynamic filed --> start to 26 min 
+chai assertation --> 33 min to 41 min ,  
+running collection without manuall --> by using monitor screen from 42 min to 52 min , but it free 100 run only beyond that we need to pay , so we dowload the collection,env file, csv file if any and run it through genkins or anyother CI/CD tool
+get tomorrow date in postman
+
+rest assured --> 59.40 to 
+get tomorrow date in postman is a 
+---------------------------------------spike and TAsk ----------------------------------------------------
+Responsetotalcompensation = Math.round(bodyData[0].totalCompensation.amount)
+CF-15947 How to implement the regression testing by using appropriate automation tools for CA and RCA. --> this for UI tool 
+
+automation -
+- Epic Link  :	CF-23591 Automation testing 
+- Fix Version:	CA No Release
+- label      : CA_Backlog
+
+Spkie :- 
+- 2 spikes
+CF-18997 Api automation with postman collection and running it through Newman command
+CF-15948 Investigate how to find the bookings without an existing case 
+
+Task :-
+- CF-20227 Automate Token - Test automation --> Done 
+- CF-20228 Automate Manual reason flow testing --> Done
+- CF-20229 Automate Automation reason - payment & non payment flow testing--> Done
+
+- CF-21014 Automate negative  scenarios flow testing for SM  booking. -->  -Done
+- CF-21015 Automate negative  scenarios flow testing for TDX booking. -->  -Done
+- CF-21016 Run the Postman collection script with Newman CMD line with report generation.--> Done 
+
+- CF-22983  - Automate SOS case reason (airline-complaint) flow testing --> story point -2 --> Done 
+ here we will just only verify both cases got created  as airline-complaint without any error with or without resolution
+
+- CF-23062  - Automation testing for negative  scenarios flow for SOS case reason (airline-complaint) flow testing --> story point -2  --> done
+(here we will just only verify one -ve flow like segment missing and only complaint created no complaint reasons.
+ 
+-CF-23083 Automation testing- automate bulk case reason (pro-active) flow testing --> story point -2  --> Done
+
+-CF-23589 - Automation testing- negative  scenarios flow for SOS case reason (pro-active) flow testing --> story point -2 --> Done
+
+- CF-24789  - Automation testing- for Bulk case  Add the casetype as SM  for SM business role  (pro-active) flow testing --> 2 -->Done
+- CF-24790  - Automation testing- for Bulk case  Add the casetype as MM for 247 tuimm user business role  (pro-active) flow testing  --> 2 -->Done
+(GL code(in-destination) :- business role - tuimm role i.e only 247 & casetype - MM (tuimm)
+(GL code(after-travel)   :- business role - SM role  & casetype - SM
+------------------------pipeline related task ------------
+ - CF-24791 - Automation testing - Configure the pipeline to run the automation script from GitLab -->5  Done by Simran
+ - CF-25743 Automation testing - Explore the Configured pipeline for running automation script ( sprint 111)-->2  Done by me with help of Simran
+ -Are we able to run multiple collection and environment at same time ?
+ if any issue occurs in pipeline how to debug?
+ 
+ comment :-  initial level of investigation is done from testing point of view, now we will create a task to implement the configured pipeline for Smoke level test suite (Task created --> CF-26080).
+
+Note: - Later we will create different pipeline for Regression test suite once end to end working fine for smoke level pipeline
+Reason why Different pipe line is required for Smoke and regression because number of testing scenarios though script will be vary for Smoke and regression suite.
+
+CF-26080 Automation testing - Make Up and Run the Smoke collection automation script through pipeline-  2 point ( sprint 112) --> In-progress
+
+- Automation testing - Configure the pipeline to run the automation script from GitLab for Regression --> for Simran
+- Automation testing - Make Up and Run the Regression collection automation script through pipeline   --> 2 point 
+
+-------------------------------------------future work -------------------------------------------------------------------------
+
+------------- ---need to create Task / spike for below:--------------------------
+based on demo we need to work on below spike first then on task if it is possible to implement the spike .
+
+- Spike:-
+ - Automation testing  - How we can automate the  booking creation flow and used it for another request.   --> story point -5
+ - Automation testing  - how we can store customer last name and date of journey dynamically.
+
+
+2312100847719003
+
+
+
+based on above need to create below task:- 
+- Task -  Automation testing for  the booking creation flow from trips API and pass it to another request for ( SM booking flow both +ve & -ve flow ) --> story point -3
+- Task -  Automation testing for  the booking creation flow from trips API and pass it to another request for (TDX booking flow both +ve & -ve flow ) --> story point -3
+- Task -  Automation testing for  the booking creation flow from trips API and pass it to another request for ( airline-complaint flow both +ve & -ve flow ) -->story point -1
+- Task -  Automation testing for  the booking creation flow from trips API and pass it to another request for ( pro-active flow both +ve & -ve flow )) --> story point -1
+
+
+
+===========================================run scripts with  newman cmd =======================================================================
+- To run the scripts with  newman cmd do we need to install any software? --> yes neuman follow below steps
+
+use of neuman :- it is implementaion/part of postman tool only , it is used to run scrip on  CMD  line in headeless execution.
+  
+Steps:-
+1. open CMD on any folder no specific workspace from it should open
+2. type and hit enter --> npm install -g newman 
+
+getting ---> C:\TUI Projects deatils\Automation\Automation(Spikes)>npm install -g newman
+'npm' is not recognized as an internal or external command, -----> Node.js and npm are not installed on your computer. You can download and install Node.js from the official website 
+2.to check it is intalled or not type -->newman -v
+
+3. for  generating reports
+npm install -g newman-reporter-htmlextra  
+npm install -S newman-reporter-htmlextra
+
+4. export the collection and download the environment in same  folder 
+go the folder and open the CMD  
+now type dir and press enter --> expected both  collection and download the environmen name should display
+
+5. Now type below command to run script 
+  collection name space -e environmen name   now hit enter
+
+6. Now type below command to run script with report generation 
+newman run "collection name" space -e "environmen name" -r htmlextra --reporter-htmlextra-export index.html  now hit enter
+
+newman run collection.json -e env.json --reporters "htmlextra"
+
+7. Now type below command to run script with report generation  and data will fetched from excell sheet
+
+----
+https://www.npmjs.com/package/newman-reporter-htmlextra
+newman run Demo_neuman.postman_collection.json -e CA_Environment.postman_environment.json -r htmlextra --reporter-htmlextra-export
+newman run Demo_neuman.postman_collection.json -e CA_Environment.postman_environment.json --reporters "htmlextra"
+newman run Demo_neuman.postman_collection.json -e CA_Environment.postman_environment.json -r htmlextra --reporter-htmlextra-export index.html
+
+
+--------------------------------------------------------------------------------------------------------------------------------
+spike has been done all case api is running fine now we need to create task to implement the things as per our requirement.
+1. Automated token generation for submit case API --> to store  token  in env varibale and use it in all submit and booking apis
+2. token generation for case Api --> to store  token  in env varibale and use it in all case apis
+3. automated manual  resaon and verify the expected behvaiour
+4. automated payment automation resaon and verify the expected behvaiour--> fixed, refund, conditionalproduct, conditional total price
+5. automated Non-payment automation resaon and verify the expected behvaiour
+6. automated mixed  resaon like below and verify the expected behvaiour
+- payment + Non-payment automation resaon
+- payment + Non-payment automation + manual resaon
+
++ve flow :-
+scenarios need to covred in sript to verify below 
+verify the case status flow  when there is no case on booking i.e newly subimtted  case
+verify the case status for  when there is case on booking  i.e existing case.
+verify the case status flow of existing case when same or new or partially case subimtted on same booking
+verify the resolution on complaint , complaint resaon , 
+verify the total customer amount i.e total compensation or resolution 
+verify the booking id on complaint and complaint resason
+verify the case category i.e SM or TDX 
+verify the subject of main  and sub case case
+verif the webformId
+verif the case id of complaint and all linked complaint resason 
+verif the booking brand and sourceMarket
+
+
+-ve flow:-
+- verify the  No resolution should be created for payment automation reasons when mobile or email or both missing in c4c.--> both main & sub case but with error message and no resolution
+- verify the  No resolution should be created for payment automation reasons when email in invalid format in c4c. --> both main & sub case but with error message and no resolution
+- verify the segment not found error                                                               --> only main case with error message 
+- verify the bad data behaviour                                                                    --> only main case with error message 
+-  verify the fatal error.                                                                  --> only main case with error message but not linked to booking
+-  verify the error message when attchemnt is mandatory but user not attched                      --> both main & sub case but with error message 
+-  verify the threshold limit error at complaint level i.e at overall as defined by SM            --> both main & sub case but with error message 
+-  verify the threshold limit error at complaint reasons level i.e defined in excel mapping sheet.--> both main & sub case but with error message 
+- 
+
+
+----------------------------------------------------------------------------------------------------------------------------
+
+payment automation -->
+UK - 
+1. conditionalProduct  (based on amout entred on form) and (price on segement is required)  UK --> Is segment and realated is required --> Yes
+- Transport & Transfer/Private transfer/Not picked up or Not Received /Refund Booking (UKPay03/14) RP- supplier --> UK_163923706 
+
+2.fixed  UK --> Is segment required? Yes
+- flight/ food & Drinks/other Food & Beverages/ Availability Variation
+
+3. 
+
+Non- payment automation (UK) --> reject-snippet-77
+flight/flightChangeCancellation/ec261Delay/delayedFlight -->
+transportTransfer/adaptedTransfer/latePickup/ --> UK_16206418  ( main case -3008131 , sub case -3008132)
+
+
+
+Manual -->
+flight/flightChangeCancellation/information/cancelledFlight --> UK_13551238 ( main case -3007869 , sub case -3007904)
+
+Mix --> +Non- payment automation (accom0dation) +Manual+Fixed payment automation(flight) +N P automation (flight )+ payment automation requested amount (transfer)
+ 
+ valid flow --> UK_14506547 , case id- 3008171
+ 
+  error case -UK_16253546, case id- 3007876 and 
+  error case  with existng case flow --> UK_13206080 - 3008134
+ =============================================================time info of CA==========================================================================
+AWS Test(SIT/Test):
+Approve-  ( :-  5 min)   (same for payment automation reason)
+Reject -  ( :-  15 min) 16 min email reached and at 18 min case moved to completed
+ 
+AWS UAT(PPE/UAT) : 
+Approve- 24   hour  ( same for payment automation reason)
+Reject - 15   min
+
+
+-----AWS Test(SIT/Test):---
+-----------------------------------------------1. Non automated payment reason  -------------------> 
+
+Approve reason non payment reason - 5 min  (Maonj :-  5 min) --> total 6 min wait time  from New-automated- competed
+
+
+35 second  firt main case and then at  1.13 min second  both case  and then at 1.48 min case moved to automated and at 4 min customer email will and at 6 min case moved to completed
+
+------------------------------------- -----------------------------------------------------------
+Reject reason non payment reason - 15 min         (Manoj :-  15 min) --> total 18 min wait time  from New-automated- competed
+35 second  firt main case and then at  1.13 min second  both case  and then at 1.48 min case moved to automated
+
+ it tooks 1.13 min to craete both the case and then move to automated status and at 16 min email reached and at 18 min case moved to completed 
+
+
+-------------------------------------  2. payment automated reason -----------------------------------------------------------
+Approve reason  payment reason  -->( total 20 min wait time ) from new-automated-AWD- bank link expired -completed (sometimes more than 40 min)
+
+35 second  firt main case and then at  1.13 min second  both case  and then at 1.20 or  2 min case moved to automated and at 3 or 4 min customer email sent and then at time 4.30 or 6 min case moved to Awting bank deatils and  than wait till case moved to bank link expired and then to completed  at 
+
+Approve reason  payment reason  --> ( total 6 to 7 min wait time ) from new-automated-AWD -completed  
+
+35 second  firt main case and then at  1.25 min second  both case  and then at 2 min case moved to automated and at 3 or 4 min customer email sent  and then at time 4.30 min case moved to Awting bank deatils and  than manually access the link  and case status changed to completed/closed  at 5.20 sec 
+ time took to access the link and enter the details - 30 sec so at 4.50 min  and at 5.20 sec case moved to completed /closed
+
+Awting bank deatils to bank link expired --> 
+------------------------------3. Manual reason ---------------- -----------------------------------------------------------
+
+manual reason i.e  blank --> took  1 min to craete both the case and reflect in c4c.(case remain at new)
+
+-----------------------------4. in Case of existing case staus validation------- -----------------------------------------------------------
+ automated  2 min 
+when case moved to updated status --> time took 1.25  minute 
+when case moved to Re-open status --> time took  1.25 minute 
+------------------------------------- ------------5. proactive/ SOS airline --> ----------------------------------------
+ proactive/ SOS airline --> 
+both case created at 1.30 , and case move to  AWD at 2.10 min,  access the link case moved to completed at 4 min 
+both case created at 1.30 , and case move to  AWD at 2.10 min,  and moved to bank link expired at 17 min , and  case moved to completed at 38 min 
+
+----------------------------------------------------------------------------------------------------------------------
+use below value in set varaible to verify the case status:-
+All type of case status -->  ,new,updated,re-opened,completed,in-progress,awaiting-bank-details,"to-be-approved","automatic","in-destination",
+webformId:SM --> CA_SM_UK and TUI MM --> CA_TDX_UK  
+now scenario 5 
+
+=============================================================================================================================================
+resolution validation
+x[1].totalCompensation.amount = x[1].resolutionAmountTotals[0].total.amount --> i.e totalCompensation and resolutionAmountTotals is same  (disply at comaplint level only)
+
+x[1].complaintReasons[0].resolutions[0].resolutionAmount.amount --> resolutions details at complimt reason level (disply at each comaplint reasons level only)
+
+
+case id-3008457
+
+UK_13226389 
+
+use below pm.test for resolution validation:-
+pm.test("Response time is less than 1000ms", function () {
+    pm.expect(pm.response.responseTime).to.be.greaterThan(0);
+});
+
+Synatx of test :- 
+  pm.test("total resolution amount at comaplint level", function () {
+
+// define our own logic 
+});
+
+
+exmaple :-
+pm.test("", funtion()
+if(Responsetotalcompensation=!0)
+{
+console.log("resolution have value greater than 0:"+Responsetotalcompensation)
+}
+else
+{
+    console.log("resolution had not created")
+});
+
+
+// defining total resolution amount at comaplint level-->(scenario 6 ) 
+ // totalresolution=true
+ //pm.environment.set("resolutionamount", totalresolution)
+
+------------------------------------- time wait-----------------------------------------------------------
+// define time wait funtion here where 'number' is the milliseconds.
+// 1 min =60000 milliseconds
+ //Synatx-->setTimeout(function(){}, [number]);
+// giving time period so get call executed after 2.20 min 
+ setTimeout(function(){}, [140000]);
+
+
+------------------------------ question on postman running script------------------in-destination
+if we lock the system i need to re-run the script and it will run againg from begining  --> IS there any way to tackle this even system lck scrits should run in backgroud --> yes through neuman cmd  
+- i have run the collection and if  change any thing in code  will effect like time wait 
+- how to know which folder are running when we run multiple folder at same time ?
+- if one of the secript failed then how it continue to run for script in same test script or in same request do the behaviour will be there when we run thruogh neuman
+- in the response we are not caputirng any error if any type of error came while creating the case like segment not found, bad data and so on. --> can't teste it through automation need to verify through manual effort 
+- Airline / Bulk case --> no response on case api how we will automated ?
+- pause the ruuner and change anything in script and then run again will changed code will reflect?
+------------------------
+
+var jsonData = pm.response.json();
+
+var channelsArray = jsonData.channels;
+
+var length = channelsArray.length;
+
+//boolean (true and false)
+var channelExists = false;
+
+for (var i = 0; i < length; i++){
+    var name = channelsArray[i].name;
+    console.log("name =" + name );
+    if (name == "cpwstaug2020" ){
+        channelExists = true;
+        // get the roomid and store it in the variable
+        var roomid = channelsArray[i]._id;
+        console.log("room id =" + roomid );
+
+        pm.environment.set("room_id", roomid);
+    } // end of outer if 
+} // end of for loop
+
+console.log("Channel Name Found =  " + channelExists);
+
+
+pm.test("Channel Name exists", function () {
+    pm.expect(channelExists).to.be.true;
+});
+
+
+================================================use below values in code to test ======================
+
+use below value in set varaible to verify the case status:-
+All type of case status -->  ,new,updated,re-opened,completed,in-progress,awaiting-bank-details,"to-be-approved","automatic","in-destination",
+webformId:SM --> CA_SM_UK and TUI MM --> CA_TDX_UK  
+now scenario 5 
+
+============================================Smoke testing --> scenario covered in postman ============================================================
+
+scenario 1:- booking ID in get booking and get case call
+- verify the booking ID of request body & response body must match 
+- verify the booking ID between req.body of submit case api  & case api call
+
+scenario 2 : Departure Date or outbund dept date -->verify the Departure Date of request body & response body must match 
+
+scenario 3 :-  case status (no existing case on booking) -->verify the comaint case status between submit case api & case api call
+Scenario 99:-  case status (existing case on booking)-->verify the complaint case status of existing case
+
+scenario 4:- case categroy --> verify the case category  between submit case api & case api call
+
+scenario 5:- resolution validation in reponse body of  case api get call  --> only for payment automation reasons
+
+x[1].totalCompensation.amount = x[1].resolutionAmountTotals[0].total.amount --> i.e totalCompensation(with decimal ) and resolutionAmountTotals(without decimal) is same  (disply at comaplint level only)
+x[1].complaintReasons[0].resolutions[0].resolutionAmount.amount --> resolutions details at complimt reason level (disply at each comaplint reasons level only)
+
+scenario 5:- verifying totalCompensation and resolutionAmountTotals should equal
+scenario 6:- verifying total resolution amount or total Compensation at complaint level  
+x[0].resolutionAmountTotals[0].total.amount
+scenario 7:- verifying  resolution amount of complaint reason  
+x[0].complaintReasons[0].resolutions[0].resolutionAmount.amount
+
+how to use boolean in code?
+split funtion in java array?
+
+scenario 8:-webformId SM --> CA_SM_UK and TUI MM --> CA_TDX_UK 
+
+x[0].webformId --> case api only so need to defined in pre-req script
+
+scenario 9:-subject of main case SM/TDX : TUI Customer Services
+
+-----Negative scenarios--------
+requested  Payment Automation with incorrect currency(Status=new)
+email or mobile number or both missing on customer 
+ --> this two above flow will be tested by verifying the resolution amount
+at main case & sub case level --> resolution should be 0 (covered through scenrio 6 and 7 by editing test script)
+
+scenario -10   --> Segment missing or Bad data
+for all below logic will be same just check complaint reasons not created and total comp amount should be 0
+(segment missing):-when complaint reason is not created
+ (Bad data)       :-when complaint reason is not created
+
+
+
+---------------------------------------------------------------------------------------------------------------------------------------
+-->Up-working automatic
+
+Note:- 
+- we have open issue manual and then payment automation --> case status status at automated
+-  in case od testing existing  case status flow second time we can send any type of reason, it can be manual or autoamted
+
+Manual case :-
+
+TDX /SM manual case - UK_14176255, 3008279
+Manual -when Exisiting case is at new (status= new to new) --> UK_12589268, 3008506 --> script run time=4.40 min
+
+Non-Payment reasons:-
+
+Non-Payment Automation- No existing case (Status=automated) Approve/reject or both (total time =2.2 min )--> --> script run time=3.40 min
+Non-Payment Automation- No existing case (Status=automated to compelted) Reject (total time =20 min )--> UK_20438199, 3008552 --> script run time=21.40 min
+Non-Payment Automation- No existing case (Status=automated to compelted) approve (total time =6.2 min )-->UK_18898546 , 3008532 --> script run time=6.40 min
+Non-Payment Automation- Exisiting case flow (status= automated to updated) Approve (total time =5 min )--> UK_25022529 --> script run time=5.40 min
+Non-Payment Automation- Exisiting case flow (status= complted to re-open) Approve (total time =8 min )--> UK_18804993,3008573 --> script run time=9.40 min
+
+TDX Non-Payment Automation- Exisiting case exisiting flow (status= automated to closed) Approve -->UK_13205120,3008709,3008786--> script run time=9.40 min
+
+Payment reasons:-
+
+Payment Automation (Status=automated) --> Up-running
+
+Payment Automation-(Status=automated to completed while accesing bank link) (total time =20 min )--> bank link is not working not tested e2e (UK_17977306)
+Payment Automation- (Status=automated to completed while not accesing bank link)(total time =20 min)--> not tested  due time error 
+Payment Automation- Exisiting case flow (status= completed to re-open while accesing bank link)--> bank link is not working, not tested e2e
+
+Payment Automation- Exisiting case flow (status= automated to updated)(Fixed) Up -working -->UK_10775966 , case id - 3008288 (2 email)
+
+Payment Automation-(Status=automated to Awaiting bank details) (total time =4.40 min )--> UK_11366847,3008510
+
+Payment Automation-(Status=automated to Bank Link expired) (total time =  min ) --> K_11366847,3008510 --> case stuck at AWD even after 30 min (3008574)
+
+
+Mix reasons--> payment +non payment automation +manual reason (status=new) --> UK_13113563,3008516
+Mix reasons--> payment +non payment automation reason (status=automated) total time =  7 min ) -->UK_18951677, 3008489
+
+ 35 second  firt main case and then at  2.10 min second  both case  and then at 3 case moved to automated and at 4 min customer email sent and then at time 6.30 min case moved to Awting bank deatils and  than wait till case moved to bank link --> why  case is not moving to expired
+
+----------------------------------------------------------------------------------------------------------------------------
+
+
+pm.environment.set("variable_key", "variable_value");
+pm.environment.get("variable_key");
+
+pm.globals.set("variable_key", "variable_value");
+pm.globals.get("variable_key");
+
+pm.collectionVariables.get("variable_key");
+pm.collectionVariables.set("variable_key", "variable_value");
+
+pm.variables.get("variable_key"); --> how to use it on postman?
+
+test="rahul"
+pm.variables.set("localvariable", test);
+//pm.variables.get("localvariable");
+console.log(test)
+
+pm.test("test thelocalvariable ", function () {
+        pm.expect(test).to.eql(pm.environment.get("localvariable"));
+    });
+=============================================framework related information==========================================================================
+
+RescompReasonsresolution = bodyData[0].complaintReasons //-->when complaint reason itself not created
+first case at index 0, and then another case at index 1 and so on 
+
+AssertionError: expected 'CA_TDX_UK' (expected result-in response )  to deeply equal 'CA_SM_UK' (actual result-user defined)
+ 
+
+=============================================================time info of CA==========================================================================
+AWS Test(SIT/Test):
+Approve-  ( 5 min)   (same for payment automation reason)
+Reject -  (15 min) 
+
+------------------
+AWS UAT(PPE/UAT) : 
+Approve- 24   hour  ( same for payment automation reason)
+Reject - 15   min 
+
+ -------------------------------------AWS TEST-----------------------------------------------------------
+Non-payment automated reason (Approve) --> total 6 min wait time  from New-automated- competed
+payment automated reason (Approve) --> total 6 to 7 min wait time from new-automated-AWD -completed  after accesing bank link manually
+manual reason i.e  blank --> took  1 min to craete both the case and reflect in c4c.(case remain at new)
+
+------------------------------------------------------------------------------------------------
+================================================use below values in code to test ======================
+
+use below value in set varaible to verify the case status:-
+All type of case status -->  ,new,updated,re-opened,completed,in-progress,awaiting-bank-details,"to-be-approved","automatic","in-destination",
+webformId:SM --> CA_SM_UK and TUI MM --> CA_TDX_UK  
+now scenario 5 
+
+// finding totalCompensation:--> with decimal value
+Responsetotalcompensation = Math.round(bodyData[0].totalCompensation.amount)
+
+pm.test("outbound dep date must match between submit and booking api", function () {
+        pm.expect(depdate.split('T')[0]).to.eql(pm.environment.get("Req_Dep_Date"));
+    });
+
+
+===========================================run scripts with  newman cmd =======================================================================
+- To run the scripts with  newman cmd do we need to install any software? --> yes neuman and follow below steps
+
+use of neuman :- it is implementaion/part of postman tool only , it is used to run scrip on  CMD  line in headeless execution.
+- to check it is intalled or not type -->newman -v
+
+6. Now type below command to run script with report generation 
+newman run "collection name" space -e "environmen name" -r htmlextra --reporter-htmlextra-export index.html  and  hit enter
+
+without report --> (we will able to execution step om cmd console)
+newman run Demo_neuman.postman_collection.json -e CA_Environment.postman_environment.json 
+
+with report    -->(we will not able to execution step om cmd console , we can at the end on html reports)
+newman run Demo_neuman.postman_collection.json -e CA_Environment.postman_environment.json -r htmlextra --reporter-htmlextra-export index.html
+
+========================================================= overview of framework for Demo ==================================================================
+1. This is a smoke level a high level end to end funtionality testing  collection framwork in postman. 
+2. here we are verifying the end to end  flow for Manual case and payment and Non-payment Automation case  for both SM and TDX booking.
+3. also we are covering  end to end flow for the SOS Airline, bulk case (NORDICS).
+4. Overall we will create the case when there is no existing case on booking and when there is existing case on booking and for each scenario we will
+cover below validation with slighty changes:-
+
+ *Manul flow*
+- without existing case on booking --> 
+- with existing case on booking  --> 
+
+*Non-Payment automation flow*
+- without existing case on booking --> 
+- with existing case on booking  --> 
+
+ *Payment automation flow*
+- without existing case on booking --> 
+- with existing case on booking  --> 
+
+* SOS Airline, bulk case*
+- when status - new --> 
+- when status - completed --> 
+ 
+==============================
+Smoke :- at smoke level we have covered --> manual case creation , payment case creation, non-payment case creation for SM and TDX booking. 
+comment :- by running the smoke level user  will create 6 case from end to end flow with email but still we need to verify  snippet, sig, salutaion manually.
+
+regression :- later on at regression level we will cover the case creation with existing flow , SM specific scenarion like DE file attched payment reason, few -negative scenarion,first choice payment & non payment, DE SM - airtour and TUI DE and so on.
+
+comment :- we will create 6 case and verify it but still snippet, sig, salutaion  we to verify manually once user received email.
+----------------------------------------------------------------------------------------
+validation point covering for manual case flow --> 
+Case status, case cateogry,booking Id ,Dep date,webformId SM ,subject of main case, re-verifying case status in case of existing flow,
+
+----------------------------------------------------------------------------------------
+validation point covering for Non-Payment automation flow --> 
+Case status, case cateogry,booking Id ,Dep date,webformId SM ,subject of main case, re-verifying case status in case of existing flow,
+
+----------------------------------------------------------------------------------------
+validation point covering for Payment automation flow --> 
+Case status--> automated, Awaiting bank details, Bank link expired , Completed(SM)/closed(TDX)
+case cateogry,booking Id ,Dep date,webformId SM ,subject of main case,
+Resolution amount at complaint level & complaint reason level -->here we just checking amount should be greater than 0 so that we insure resolution got created.
+ 
+in case of existing flow scenarion :- we are re-verifying case status , resolution and few more scenarios.
+
+Note:- all above scenarios we are covering for TDX booking also.
+----------------------------------------------------------------------------------------
+validation point covering for SOS Airline,bulk case* flow --> 
+
+Case status (when iput in data sent as complted)--> automated, Awaiting bank details, Bank link expired , 
+Completed,case cateogry,booking Id ,Dep date,webformId SM ,subject of main case, resolution
+
+Case status (when iput in data sent as new)--> remains at new only 
+case cateogry,booking Id ,Dep date,webformId SM ,subject of main case, resolution amount 
+----------------------------------------------------------------------------------------
+
+===================================================framwork demo ==========================
+at index 0 first time complaint created and at index 1 second time case creted  i. e complaint
+
+ since it will take more than 2 hour to run whole collection so i will demo only few things rest all will work on same flow with different in validation code.
+ - that's why i crated one small collection where i will cover SM and TDX booking to test case status flow  for manual, pyamnet and non payment
+
+SM /TDX --> 
+- case status for new booking and case status flow for existing case 
+- case cateorgy, booikgd id, webform ID, dept date, resolution at comlaint reason and total compenstation at complaint level
+
+
+=======================drawback ===============
+for payment reason we observed that it is taking from 6 to 10 min to move case from new to compelted ,so we need to high wait time due to the script running time will be high.
+
+1. payment reason-
+- 40 sec - aut,email sent at - 3or 4 or 5 or 6 min, ABD- 4 or 5.30 or 6.30 0r 7 min, banklink -5 0r 6 min or 7.30 or 8 min min, complted -7 0r 8 or 9 or 10 min , and then  reopen at - 9 or 10 or 11 or 12 min 
+completed to reopen/updated --> 2 min if second reason is differ  else 1 min for same reason
+
+2. non-payment reason-
+45 sec - aut , email sent at - 3 min, completed at - 4 or 5 min, reopen at - 6 or 8 min 
+
+completed to reopen/updated --> 2 min if second reason is differ  else 1 min for same reason
+
+
+- configure with pipeline if possible and later add the SOS - airline and bulk case scenario
+- SOS - airline and bulk case --> no response in case api  need to check with dev team
+- note:-The fatal error case can't be automated because these case are not linked to any booking so we can not traced the case details in case api response 
+-  we can't automate all possible scenarios like signature , snippets , salutation and so on  because in API response body we are not captuirng this information 
+
+=======================================action need to take after 1st demo  ====================
+----How to do :----
+1. automated bank link stuff i.e sending details through api call?
+https://test.securetransfer-tui.com/198FF87483C11EEEB18222421DC1F2E0?LAN=46
+
+comment :-  checked with c4c dev there is no API to send bank details this is workflow rule created in c4c so case moved to ABD email will sent to customer they filled form with all details,
+Note:- anyhow still user need to access bank link manually to generate the OTP  then only we can send the deatils.
+
+
+2. autmating booking and passing it to postman through excel or any othere way.
+comment :- working on it with trips api booking creation stuff.
+
+3.  provide me an api where we can able to see all the booking of c4c based on filter like create case resquest API
+comment :- if need purushottom can developed this.
+
+4. configuring with ci/cd pipeline like gitlab-
+- first check you have git access or not .
+- Booking api need UN/PWD?
+- Gitlab access,CI/CD.
+ 
+5. 
+   
+--------------- booking creation API questions -----------
+1. feom where LEAD customer name is fetching I didn't show any value in json reqt file 
+2. why segment is not displying 
+3. if i need to add few more segment from where i mapped mean is there any mapping document ?
+4. how to define values for source market, tour operator , and so on respective to SM ?
+5. why booking created new every time even though i passed the same booking where in tibco it not allowing to create duplicate booking?
+
+
+==========================================================================================================================================================
+-------------------------------------------------------------session on automation---------------------------------------------------------------------
+
+Session API automation using postman from CPWST 
+ for postman overview from CPWST -->till 98 min  (part 1 video of Day1 training)
+postman exercise 1 -->1.27 min to 1.26 (part 1 video of Day1 training)
+ exercise 2  solution --> from 1.36(part 1) to 17 min (part 2 )  and Neuman run -->from 
+
+---------------------------------------------------------------------------------------------------------------------------------------------------
+https://www.youtube.com/watch?v=juuhb3W8xT4
+if console not evaluate then it will not print means if condition is false then it will not print in console.
+
+variables, , console -->
+functions--> 15 min to 45 min functions ( from 40 min JS to JSON)
+array - 45 to 56.34 min 
+
+loop- 57 to 1.1 hr. 
+
+postman snippets --> 1.10 hr. to  1.20 min
+how to read the response -->  1.20 to end
+
+--------------------------------------------------------------
+How to write API test cases in Postman using JavaScript
+https://www.youtube.com/watch?v=6uSTSfLjstI
+
+-------------------------------------------------------------------------------------------------
+https://www.youtube.com/watch?v=2S0gK6zwc1E --> // to generate random unique number
+
+ precedencein programming language -->() * / % > + - 
+ /n--> next line of code
+ / --> space b/w 2 words --> ram shyam
+ // --> / b/w 2 words  --> ram/shyam
+/// --> // b/w 2 words  --> ram//shyam
+math.random () --> o/p= unique number will generate
+math.min (24,4,1) --> o/p= 1
+math.max (24,4,1) --> o/p= 24
+
+
+Responsetotalcompensation = Math.round(bodyData[0].totalCompensation.amount)
+
+
+
+ 
+-----------------spike on how we can efficiently use booking creation API in out existing framework--------------------------------
+- Spike - Automation testing for - How we can automate the  booking creation flow and used it for another request. 
+
+  Automation task - in-progress
+-  i want to see the customer details which api we can use ?
+-  by using booking creation API --> we can send booikng id ,dept date from request body to other request 
+lastname & email we will make constant
+
+- question :-
+from where we will get the key value of JSON data for each SM if we need to prepare test for any other SM .
+
+we need to give valid customer id which available in master data
+1. segment key --> Is it just random  value or you are creating it , if yes how we wil get or generate this for each SM
+is it mandatory to provide 
+2.  do we can give customer details randomnly so that if it matches it will create customer or new customer will be created 
+comment --> rightnow we need to give valid customer id which available in master data lese it show blank data in c4c
+we can create one customer or take any existing customer and use this customer every time  while create bookings from postman.  
+
+3. why dept date is not updating in c4c as per input i have passed in json data.
+why booking status in onrequest but i have status as booked
+
+4. is there any API from whcih in response body we can customer deatils like fn ln, dept date
+5.  when run collection through neuman and if lock the system execution stopped once we open system the execution will be reinitiate --> is there any way by 
+which if system locked even after execution keep running in background.
+
+6. we can create one test automation for customer so that when ever we create a booking this test data is get linked this will help us to mentianed the same customer name in all request.
+same way we choose of fix dept date for SM booking and TDX we need to get live sent same data for all request
+
+
+-->
+why accommodation filed is blank in c4c?
+to show outbound dept date and home bound arrival date which filed it will  considered in booking creation API.
+is there any mapping document ,i mean from where we will get the data to pass key value pair in booking creation API request in JSON data?
+
+--------------------------------------------------------API automation flow --------------------
+ pre-requiste :- All required token generator API calls 
+ -Token 1:- Submit Case(POST Call) & Booking details(GET Call) --> Env varaible name :- createcaseToken  
+ Comment :- This  Token  is passed to  Submit Case(POST Call) & Booking details(GET Call) for create a case and to fetch  booking details in response 
+ 
+  -Token 2:-Case Details API (GET Call) --> Env varaible name :- CaseApiToken 
+ Comment :-   This  Token  is  passed to Case Details API (GET Call) to fetch the case deatils in response 
+ 
+   -Token 3:- booking creation  API (POST call) --> Env varaible name :- BookingCreationToken 
+  Comment :- This  Token  is passed to  booking creation API (POST call) to create the booking  
+ 
+ 
+ 
+ step 1 (booking creation API):- create unique booking id  ( POST Call) 
+--> https://test.api.tui/customer/customer-data-management/bookings/batch/booking-customers
+ step 2 (Case creation API):- pass this unique booking id to Case creation call (POST Call) 
+--> {{url}}/customer/case-management/complaint-automation/submit-complaint/{{SM}}
+ step 3 (booking Deatils API):- pass this unique booking id to booking deatils API call ( GET Call)
+--> https://test.api.tui/customer/customer-data-management/bookings/{{Req_Booking_id}}
+ Step 4 (Case Deatils API):- pass this unique booking id to Case deatils API call ( GET Call)
+--> {{url}}/customer/case-management/complaint-cases?originalBookingId={{Req_Booking_id}}&ownerEntityId=UK
+ 
+ 
+ 
+  "lastName": "boyce", --> it will fixed 
+    "bookingID": "{{randombookingid}}",  --> step 1
+    "email": "rahul.kumar@tui.co.uk",  --> hard code 
+    "departureDate": "2023-10-20",  --> it will fixed 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-------------------------------------demo for QA community-----------------
+booking data :- 
+(SM booking)
+16392804 to 16392809
+
+163928011 UK_163928020
+
+
+TDX booking -
+UK_20432966 ,UK_19789601
+
+UK_19549873,UK_21395448,UK_18178017 ,UK_20521430
+
+
+
+
+without report --> (we will able to execution step om cmd console)
+newman run Demo_neuman.postman_collection.json -e CA_Environment.postman_environment.json 
+
+with report    -->(we will not able to execution step om cmd console , we can at the end on html reports)
+newman run Demo_neuman.postman_collection.json -e CA_Environment.postman_environment.json -r htmlextra --reporter-htmlextra-export index.html
+
+
+
+
+use data driven --> by using this we can store the reasons in file from file we fetch reason in direct to body --> 
+instaed of decalring our own local variable and comparing with env variable we use JSON and comapre it response 
+
+like case category, case status and comapring it with response instead of store all our decalre varibale in JSON and use it in comapring the with response that 
+like set and get  varaible -->  we will call get value and it will be compare with response 
+in JSON -->  we will call  value from json and it will be compare with response 
+
+
+
+
+
+
+--------------------------------------------------------
+
+How to integrate 2 different web application from UI automation point of view?
+
+
+allure report 
+Totp - for automating MFA for mobile for login 
+snowflake-
+the open university
+google digital garage 
+alison empower yourself?
+
+--------------------------------------------------java workshop --------------------------------------------------
+to store value we use refer varialbe 
+
+------------------------------------------sahipro kt--------------------- (ctrl+enter)
+TUIAUtomationframework
+1.business library ( do not use html use only fiori
+-  --> common method like un/pwd
+-  --> to write the methods
+
+2. 
+ element repository --> to store xpath of web element
+ 
+
+
+questions:- 
+Nibedita:- 
+at last just ask how you are writiing the test case on csv file,
+how end to end flow work including git deployment  just one live example 
+
+git lab integration 
+
+how you are verifying email like Ack alert i mean 
+
+
+------------------------------------------------java script-----------------
+lecture 1:- var, let , const
+lecture 5:- 
+arrow function 
+arr.for each (call back function)
+
+
+Synchronous programing Call back 
+give data from data base 
+when we are sending 123 we get data from DB of id 123 , similar to 1
+
+ when ever we want to pass the argument we can't write like we need to create Arrow function  as define  below
+promise is an object in JS which have total 3 stages , when user  call these 3 stages function of promise object   state will display on console i mean real time 
+stage 1 pending  
+stage 2 fulfilled or resolved
+stage 3 rejected  ( error will shows)
+
+-  to use callback function  and promise chain function we don't put this under any function but to use asynwait () we need put this under any function  and then first we need call this function at least one time and then we can access asynwait () and this unnecessary call in js to over come we have IIFE 
+
+
+- data is not in readable format when we use fetch () so we are using JSON() to make data in readable format 
+fetching of data and converting into json format 
+
+same work by using promise chain
+
+
+
+
+
+
+
+
+
+
