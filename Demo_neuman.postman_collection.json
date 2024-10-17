@@ -1,0 +1,4422 @@
+{
+	"info": {
+		"_postman_id": "a4f15f64-4400-4810-83d7-d499d4675009",
+		"name": "Demo_neuman",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "10361081",
+		"_collection_link": "https://galactic-spaceship-3459.postman.co/workspace/CA-Smoke-testing~fcb18048-7f59-4fb8-af91-e6ea6cdf9445/collection/10361081-a4f15f64-4400-4810-83d7-d499d4675009?action=share&source=collection_link&creator=10361081"
+	},
+	"item": [
+		{
+			"name": "All Token generator",
+			"item": [
+				{
+					"name": "Submit Case(POST Call) & Booking details(GETCall)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"bodyData = JSON.parse(responseBody)\r",
+									"value1 = bodyData.access_token\r",
+									"\r",
+									"console.log(value1)\r",
+									"pm.environment.set(\"createcaseToken\", value1);\r",
+									"\r",
+									"//status\r",
+									"\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"\r",
+									"    pm.response.to.have.status(200);\r",
+									"\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "oXgLCGeNnXKPWiMy",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "mf8TMcPxTsGqlb0sK8ffxEelieDmsi1v",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Connection",
+								"value": "keep-alive",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Basic bWY4VE1jUHhUc0dxbGIwc0s4ZmZ4RWVsaWVEbXNpMXY6b1hnTENHZU5uWEtQV2lNeQ==",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "grant_type",
+									"value": "client_credentials",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/oauth2/token",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"oauth2",
+								"token"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Case Details API Call token generator",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"bodyData = JSON.parse(responseBody)\r",
+									"value2 = bodyData.access_token\r",
+									"\r",
+									"console.log(value2)\r",
+									"pm.environment.set(\"CaseApiToken\", value2);\r",
+									"\r",
+									"//status\r",
+									"\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"\r",
+									"    pm.response.to.have.status(200);\r",
+									"\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "in",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							},
+							{
+								"key": "Authorization",
+								"value": "Basic aHRjYVV3QnBhb3dveFNHakJBYUE3SDkxQkNIWmlkWHA6WVZtUE13anNkd21sWkowWA=="
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "grant_type",
+									"value": "client_credentials",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://test.api.tui/oauth2/token",
+							"protocol": "https",
+							"host": [
+								"test",
+								"api",
+								"tui"
+							],
+							"path": [
+								"oauth2",
+								"token"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "BUlk case & Airline-SOS Token generation Copy",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"bodyData = JSON.parse(responseBody)\r",
+									"value3 = bodyData.access_token\r",
+									"\r",
+									"console.log(value3)\r",
+									"pm.environment.set(\"Bulk_SOSAirline_Token\", value3);\r",
+									"\r",
+									"//status\r",
+									"\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"\r",
+									"    pm.response.to.have.status(200);\r",
+									"\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "in",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic dE5kQTlsUUE1MGp5Q29IQks4M1RXMUdqNHh2OEl1ZlM6NW9JZGwweTRibFM5a2ZDZg=="
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "grant_type",
+									"value": "client_credentials",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://test.api.tui/oauth2/token",
+							"protocol": "https",
+							"host": [
+								"test",
+								"api",
+								"tui"
+							],
+							"path": [
+								"oauth2",
+								"token"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Token for booking creation",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"bodyData = JSON.parse(responseBody)\r",
+									"value1 = bodyData.access_token\r",
+									"\r",
+									"console.log(value1)\r",
+									"pm.environment.set(\"BookingCreationToken\", value1);\r",
+									"\r",
+									"//status\r",
+									"\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"\r",
+									"    pm.response.to.have.status(200);\r",
+									"\r",
+									"});\r",
+									"\r",
+									"//var uid =Math. random;\r",
+									"//var x = Math.floor((Math.random() * 10000123) + 0);\r",
+									"//console.log(x)\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "in",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic bWY4VE1jUHhUc0dxbGIwc0s4ZmZ4RWVsaWVEbXNpMXY6b1hnTENHZU5uWEtQV2lNeQ=="
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "grant_type",
+									"value": "client_credentials",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://test.api.tui/oauth2/token",
+							"protocol": "https",
+							"host": [
+								"test",
+								"api",
+								"tui"
+							],
+							"path": [
+								"oauth2",
+								"token"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "SM-Manual -whenExisiting case is at new (status= new to new) Up-working Copy",
+			"item": [
+				{
+					"name": "Manual",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"//status\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									" pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"\r",
+									"// ---------decalaring variable by using requst body data-----------//\r",
+									"\r",
+									"// storing request body data in json i.e in ref varaiable reqData\r",
+									"var reqData=JSON.parse(pm.request.body.raw)\r",
+									"\r",
+									"// booking Id (scenario 1)\r",
+									"ReqBookingId=reqData.bookingID\r",
+									"console.log(\"C4C booking id in request body:\" + ReqBookingId)\r",
+									"pm.environment.set(\"Req_Booking_id\", ReqBookingId);\r",
+									"\r",
+									"// dept date (scenario 2)\r",
+									"ReqDepDate=reqData.departureDate\r",
+									"console.log(\"Outbound Departure Date is request body:\" + ReqDepDate)\r",
+									"pm.environment.set(\"Req_Dep_Date\", ReqDepDate);\r",
+									"\r",
+									"// ------------decalring our own variable locally -----------//\r",
+									"\r",
+									"//const allCasestatus=[\"reopen\",\"new\",\"automated\",\"closed\"];// if i have define muliple staus here then how we can check --> we can compare by usomg loop with condition for time leave it \r",
+									"\r",
+									"// defining complaint case status - (scenario 3)\r",
+									"\r",
+									"const userdefineCasestatus=\"new\"\r",
+									"console.log(\"user defined case staus:\" +\" \"+ userdefineCasestatus)\r",
+									"pm.environment.set(\"User_define_Case_status\",userdefineCasestatus);\r",
+									"\r",
+									"\r",
+									"// defining case categroy (scenario 4 ) \r",
+									"//will compare this with case API Call\r",
+									" const UserdefineCasecateogry=\"source-market\"\r",
+									"pm.environment.set(\"User_define_Case_Cateogry\", UserdefineCasecateogry);\r",
+									"\r",
+									"//scenario 8:-webformId SM \r",
+									"const SMwebformId=\"CA_SM_UK\"\r",
+									"pm.environment.set(\"SM_booking_webformID\", SMwebformId)\r",
+									"\r",
+									"//scenario 9:- subject of main case SM/TDX :- TUI Customer Services\r",
+									"\r",
+									"const complaintsubject=\"TUI Customer Services\"\r",
+									"pm.environment.set(\"complaint_subjectName\", complaintsubject)\r",
+									"\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{createcaseToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "ownerEntityId",
+								"value": "{{SM}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"lastName\": \"lord\",\r\n    \"bookingID\": \"16392802\",\r\n    \"email\": \"rahul.kumar@tui.co.uk\",\r\n    \"departureDate\": \"2024-06-08\",\r\n    \"contacts\": {\r\n        \"mobileNumber\": \"8623017888\"\r\n    },\r\n    \"problems\": [\r\n        {\r\n           \"problemID\": 1,\r\n            \"area\": \"flight\",\r\n            \"category\": \"checkin\",\r\n            \"subcategory\": \"airport\",\r\n            \"reason\": \"closed\",\r\n            \"description\": \"R-308,manual\",\r\n            \"flightLeg\": \"inbound\"\r\n        }\r\n    ],\r\n    \"files\": []\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/customer/case-management/complaint-automation/submit-complaint/{{SM}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"customer",
+								"case-management",
+								"complaint-automation",
+								"submit-complaint",
+								"{{SM}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "booking api Copy",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var bodyData = pm.response.json();\r",
+									"\r",
+									"//--------------------Scenario 1:------------------------------//\r",
+									"/*verify the booking ID of request body & response body must match */\r",
+									"\r",
+									"// Step 1:-find booking id from  Respons body & storing in a variable\r",
+									"getcallbookingid=bodyData[0].originBookingId.id\r",
+									"\r",
+									"// Step 2:- Here we will verif the booking id passed in POST submit request body with  response of cae and booking api GET  Call  be similar.\r",
+									"pm.test(\"verify booking id of Req of submit api  & Res of booking api body must match\",function () {\r",
+									"    pm.expect(getcallbookingid).to.eql(pm.environment.get(\"Req_Booking_id\"));\r",
+									"     });\r",
+									"//--------------------Scenario 2:Departure Date ----------------------//\r",
+									"/*verify the Departure Date of request body & response body must match */\r",
+									"\r",
+									"// Step 1:-finding the outbund Dept Date from response & storing in a variable\r",
+									"depdate = bodyData[0].startDate\r",
+									"console.log(\"C4C outbound dep date in resonse body:\"+depdate)\r",
+									"\r",
+									"/* Step 2:-now verif the Departure Date passed in POST submit request cal with the response of GET booking Api call must be similar */\r",
+									"// split is used to make same dare format\r",
+									"\r",
+									"pm.test(\"outbound dep date is mact in submit and booking api\", function () {\r",
+									"        pm.expect(depdate.split('T')[0]).to.eql(pm.environment.get(\"Req_Dep_Date\"));\r",
+									"    });\r",
+									"   \r",
+									"   //--------------------Scenario :------------------------------//\r",
+									"\r",
+									"\r",
+									"\r",
+									"\r",
+									"\r",
+									"\r",
+									"\r",
+									"\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"\r",
+									"// took  1 min to craete both the case and reflect in c4c.(case should  remain at new)\r",
+									"// giving time period so get call executed after 1.20 min \r",
+									" setTimeout(function(){}, [80000]);\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{createcaseToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "ownerEntityId",
+								"value": "UK",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://test.api.tui/customer/customer-data-management/bookings/{{Req_Booking_id}}",
+							"protocol": "https",
+							"host": [
+								"test",
+								"api",
+								"tui"
+							],
+							"path": [
+								"customer",
+								"customer-data-management",
+								"bookings",
+								"{{Req_Booking_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "case api (n)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"//str =JSON.stringify(bodyData);\r",
+									"//var bodyData = pm.response.json();\r",
+									"\r",
+									"bodyData = JSON.parse(responseBody);\r",
+									"console.log(\"response data :\"+bodyData)\r",
+									"\r",
+									"//--------------------Scenario 1:booking ID-------------------------//\r",
+									"/*verify the booking ID between req.body of submit case api  & case api call */\r",
+									"// Step 1:-finding booking id from response  and storing in a variable\r",
+									"ResBookingId = bodyData[0].originBookingKey.id\r",
+									"console.log(\"C4C booking id in resonse body:\"+ResBookingId)\r",
+									"\r",
+									"/*Step 2:-verif the booking id passed in POST submit request & in response body of GET case Api Call must be match */\r",
+									"pm.test(\"verify booking id of Req & Res body must match\",function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData[0].originBookingKey.id).to.eql(pm.environment.get(\"Req_Booking_id\"));\r",
+									"});\r",
+									"// same above code in breif\r",
+									"    pm.test(\"Your test name\", function () {\r",
+									"        pm.expect(ResBookingId).to.eql(pm.environment.get(\"Req_Booking_id\"));\r",
+									"    });\r",
+									"\r",
+									"//------------Scenario 3:complaint case status-----------------------//\r",
+									"/*verify the comaint case status between submit case api & case api call  */\r",
+									"\r",
+									"// Step 1:-find the comaint case status from response & storing in a variable\r",
+									"Responsecasestatus= bodyData[0].status \r",
+									"console.log(\"C4C first complaint current case status is:\"+Responsecasestatus)\r",
+									"\r",
+									"//Step 2:-here we will verif the comaint case status store in POST call of submit case api under pre-req-script section with response body of GET case Api Call must be match*/\r",
+									"\r",
+									"    pm.test(\" complaint case status should match\", function () {\r",
+									"        pm.expect(Responsecasestatus).to.eql(pm.environment.get(\"User_define_Case_status\"));\r",
+									"    });\r",
+									"\r",
+									"// \r",
+									"//--------------------Scenario 4- case category-----------------//\r",
+									"/*verify the case category  between submit case api & case api call */\r",
+									"\r",
+									"// Step 1:-find the comaint case status from response & storing in a variable\r",
+									"Responsecasecategory = bodyData[0].category \r",
+									"\r",
+									"//Step 2:-here we will verif the complaint case category store in POST call of submit case api under pre-req-script with response body of GET case Api Call must be match*/\r",
+									"    pm.test(\"complaint case category is\", function () {\r",
+									"        pm.expect(Responsecasecategory).to.eql(pm.environment.get(\"User_define_Case_Cateogry\"));\r",
+									"    });\r",
+									"\r",
+									"\r",
+									"\r",
+									"// ------------scenario -8-------------//\r",
+									"// verifying  webformId of SM    \r",
+									"\r",
+									"pm.test(\"webform id of  SM booking is\", function () {\r",
+									"     Reswebformid = bodyData[0].webformId\r",
+									"     console.log(Reswebformid)\r",
+									"    pm.expect(Reswebformid).to.eql(pm.environment.get(\"SM_booking_webformID\"));\r",
+									"});\r",
+									"\r",
+									"// ------------scenario -9-------------//\r",
+									"// verifying  the subject name \r",
+									"\r",
+									"pm.test(\"subject name main case for SM booking is\", function () {\r",
+									"     subjectname = bodyData[0].subject\r",
+									"     console.log(subjectname)\r",
+									"   pm.expect(subjectname).to.eql(pm.environment.get(\"complaint_subjectName\"));\r",
+									"});\r",
+									"\r",
+									"\r",
+									"\r",
+									"\r",
+									"\r",
+									"\r",
+									"\r",
+									"\r",
+									"\r",
+									"\r",
+									"\r",
+									"\r",
+									"\r",
+									"// find the all complaint case id \r",
+									"// need to use array \r",
+									"\r",
+									"/*for (i=0;i<3;i++)\r",
+									"{\r",
+									"var idArray = bodyData[i].id;// passing path with index of main case\r",
+									"console.log(idArray)\r",
+									"};*/\r",
+									"//------------------status code ----------------------//\r",
+									"//status\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									" pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"// not required \r",
+									"//setTimeout(function(){}, [120000]);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "in",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{CaseApiToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/customer/case-management/complaint-cases?originalBookingId={{Req_Booking_id}}&ownerEntityId=UK",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"customer",
+								"case-management",
+								"complaint-cases"
+							],
+							"query": [
+								{
+									"key": "originalBookingId",
+									"value": "{{Req_Booking_id}}"
+								},
+								{
+									"key": "ownerEntityId",
+									"value": "UK"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Request resend any manual or automated or mix(no match)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"//status\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									" pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"//define all varaible  here which we want to compare with response of case api or booking which are are not vailbale on post submit call response like case status, case category     or if we want verify any thing from request body like booking, dept date \r",
+									"\r",
+									"/*Note:- below code can be writen in Test section if we are not comparing  pre-requiste code with response ,here resonse is not there so we can write the code for setting up environment variable in test section --> yes, but besy practice it  */\r",
+									"\r",
+									"/* setting up environment variable from request body of submit case api call or localy defining our own varaible  so that we can use this env value to compare with response data of Case API Call*/\r",
+									"\r",
+									"\r",
+									"\r",
+									"// ---------decalaring variable by using requst body data--------//\r",
+									"//var reqData=JSON.parse(pm.request.body.raw)\r",
+									"// storing request body data in json i.e in ref varaiable reqData\r",
+									"\r",
+									"\r",
+									"// ------------decalring our own variable locally -----------//\r",
+									"\r",
+									"// defining existing complaint case status - (scenario 99)\r",
+									"const userdefineExistCasestatus=\"new\"\r",
+									"\r",
+									"console.log(\"user defined existing case staus:\" +\" \"+ userdefineExistCasestatus)\r",
+									"pm.environment.set(\"User_define_exist_Case_status\",userdefineExistCasestatus);\r",
+									"\r",
+									"\r",
+									"\r",
+									"\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{createcaseToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "ownerEntityId",
+								"value": "UK",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"lastName\": \"Parr\",\r\n    \"bookingID\": \"16392802\",\r\n    \"email\": \"rahul.kumar@tui.co.uk\",\r\n    \"departureDate\": \"2022-11-27\",\r\n     \"contacts\": {\r\n        \"mobileNumber\": \"8623017888\"\r\n    },\r\n    \"problems\": [\r\n        {\r\n            \"area\": \"flight\",\r\n            \"category\": \"guestservices\",\r\n            \"subcategory\": \"ife\",\r\n            \"reason\": \"unavailable\",\r\n            \"description\": \"UK SM,row-335,fixed 10 GBP-UKPay02\",\r\n            \"amount\": \"1\",\r\n            \"flightLeg\": \"outbound\"\r\n        },\r\n        {\r\n            \"area\": \"accommodationDestination\",\r\n            \"category\": \"room\",\r\n            \"subcategory\": \"poorStandards\",\r\n            \"reason\": \"accessabilityIssue\",\r\n            \"description\": \"manual,row-163\",\r\n            \"hotelName\": \"Karbel Hotel\"\r\n        }\r\n    ],\r\n    \"files\": []\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/customer/case-management/complaint-automation/submit-complaint/UK",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"customer",
+								"case-management",
+								"complaint-automation",
+								"submit-complaint",
+								"UK"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "case api ( n to n)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"\r",
+									"//var bodyData = pm.response.json();\r",
+									"\r",
+									"bodyData = JSON.parse(responseBody);\r",
+									"console.log(\"response data :\"+bodyData)\r",
+									"\r",
+									"//----Scenario 99:existing complaint case status-----------//\r",
+									"/*verify the comaint case status of existing case  */\r",
+									"\r",
+									"// Step 1:-find the comaint case status from response & storing in a variable\r",
+									"Responsecasestatus= bodyData[0].status \r",
+									"console.log(\"C4C existing  case status is:\"+Responsecasestatus)\r",
+									"\r",
+									"//Step 2:-here we will verif the comaint case status store in POST call of submit case api under pre-req-script section with response body of GET case Api Call must be match*/\r",
+									"\r",
+									"    pm.test(\" complaint case status should match\", function () {\r",
+									"        pm.expect(Responsecasestatus).to.eql(pm.environment.get(\"User_define_exist_Case_status\"));\r",
+									"    });\r",
+									"\r",
+									"\r",
+									"\r",
+									"// ------------scenario -8-------------//\r",
+									"// Re-verifying  webformId of SM    \r",
+									"\r",
+									"pm.test(\"webform id of  SM booking is\", function () {\r",
+									"     Reswebformid = bodyData[0].webformId\r",
+									"     console.log(Reswebformid)\r",
+									"    pm.expect(Reswebformid).to.eql(pm.environment.get(\"SM_booking_webformID\"));\r",
+									"});\r",
+									"\r",
+									"// ------------scenario -9-------------//\r",
+									"// Re-verifying  the subject name \r",
+									"\r",
+									"pm.test(\"subject name main case for SM booking is\", function () {\r",
+									"     subjectname = bodyData[0].subject\r",
+									"     console.log(subjectname)\r",
+									"   pm.expect(subjectname).to.eql(pm.environment.get(\"complaint_subjectName\"));\r",
+									"});\r",
+									"\r",
+									"\r",
+									"\r",
+									"\r",
+									"\r",
+									"\r",
+									"\r",
+									"\r",
+									"\r",
+									"\r",
+									"\r",
+									"\r",
+									"\r",
+									"\r",
+									"\r",
+									"// find the all complaint case id \r",
+									"// need to use array \r",
+									"\r",
+									"/*for (i=0;i<3;i++)\r",
+									"{\r",
+									"var idArray = bodyData[i].id;// passing path with index of main case\r",
+									"console.log(idArray)\r",
+									"};*/\r",
+									"//------------------status code ----------------------//\r",
+									"//status\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									" pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"// took  1 min to craete both the case and reflect in c4c.(case should  remain at new)\r",
+									"// giving time period so get call execute after 1.20 min \r",
+									"// give time period bit more when muliplt reason passed \r",
+									" setTimeout(function(){}, [120000]);"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "in",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{CaseApiToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/customer/case-management/complaint-cases?originalBookingId={{Req_Booking_id}}&ownerEntityId=UK",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"customer",
+								"case-management",
+								"complaint-cases"
+							],
+							"query": [
+								{
+									"key": "originalBookingId",
+									"value": "{{Req_Booking_id}}"
+								},
+								{
+									"key": "ownerEntityId",
+									"value": "UK"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "TDX -Manual -whenExisiting case is at new (status= new to new) Up-working Copy",
+			"item": [
+				{
+					"name": "Submit Case(POST Call) & Booking details(GETCall) - Token generator",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"bodyData = JSON.parse(responseBody)\r",
+									"value1 = bodyData.access_token\r",
+									"\r",
+									"console.log(value1)\r",
+									"pm.environment.set(\"createcaseToken\", value1);\r",
+									"\r",
+									"//status\r",
+									"\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"\r",
+									"    pm.response.to.have.status(200);\r",
+									"\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "oXgLCGeNnXKPWiMy",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "mf8TMcPxTsGqlb0sK8ffxEelieDmsi1v",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Connection",
+								"value": "keep-alive",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Basic bWY4VE1jUHhUc0dxbGIwc0s4ZmZ4RWVsaWVEbXNpMXY6b1hnTENHZU5uWEtQV2lNeQ==",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "grant_type",
+									"value": "client_credentials",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/oauth2/token",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"oauth2",
+								"token"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Case Details API Call)- Token generator",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"bodyData = JSON.parse(responseBody)\r",
+									"value2 = bodyData.access_token\r",
+									"\r",
+									"console.log(value2)\r",
+									"pm.environment.set(\"CaseApiToken\", value2);\r",
+									"\r",
+									"//status\r",
+									"\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"\r",
+									"    pm.response.to.have.status(200);\r",
+									"\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "in",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							},
+							{
+								"key": "Authorization",
+								"value": "Basic aHRjYVV3QnBhb3dveFNHakJBYUE3SDkxQkNIWmlkWHA6WVZtUE13anNkd21sWkowWA=="
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "grant_type",
+									"value": "client_credentials",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://test.api.tui/oauth2/token",
+							"protocol": "https",
+							"host": [
+								"test",
+								"api",
+								"tui"
+							],
+							"path": [
+								"oauth2",
+								"token"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "case creation",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"//status\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									" pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"\r",
+									"\r",
+									"// ---------decalaring variable by using requst body data-----------//\r",
+									"\r",
+									"// storing request body data in json i.e in ref varaiable reqData\r",
+									"var reqData=JSON.parse(pm.request.body.raw)\r",
+									"\r",
+									"// booking Id (scenario 1) --> x.bookingID here x is reqData\r",
+									"ReqBookingId=reqData.bookingID\r",
+									"console.log(\"C4C booking id in request body:\" + ReqBookingId)\r",
+									"pm.environment.set(\"Req_Booking_id\", ReqBookingId);\r",
+									"\r",
+									"// dept date (scenario 2)\r",
+									"ReqDepDate=reqData.departureDate\r",
+									"console.log(\"Outbound Departure Date is request body:\" + ReqDepDate)\r",
+									"pm.environment.set(\"Req_Dep_Date\", ReqDepDate);\r",
+									"\r",
+									"// ------------decalring our own variable locally -----------//\r",
+									"\r",
+									"//const allCasestatus=[\"reopen\",\"new\",\"automated\",\"closed\"];// if i have define muliple staus here then how we can check --> we can compare by usomg loop with condition for time leave it \r",
+									"\r",
+									"// defining complaint case status - (scenario 3)\r",
+									"\r",
+									"const userdefineCasestatus=\"new\"\r",
+									"console.log(\"user defined case staus:\" +\" \"+ userdefineCasestatus)\r",
+									"pm.environment.set(\"User_define_Case_status\",userdefineCasestatus);\r",
+									"\r",
+									"// defining case categroy (scenario 4 ) \r",
+									"//will compare this with case API Call\r",
+									" const UserdefineCasecateogry=\"in-destination\"\r",
+									"pm.environment.set(\"User_define_Case_Cateogry\", UserdefineCasecateogry);\r",
+									"\r",
+									"//scenario 8:-webformId SM \r",
+									"const SMwebformId=\"CA_TDX_UK\"\r",
+									"pm.environment.set(\"SM_booking_webformID\", SMwebformId)\r",
+									"\r",
+									"//scenario 9:- subject of main case SM/TDX :- TUI Customer Services\r",
+									"\r",
+									"const complaintsubject=\"TUI Customer Services\"\r",
+									"pm.environment.set(\"complaint_subjectName\", complaintsubject)\r",
+									"\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{createcaseToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "ownerEntityId",
+								"value": "UK",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"lastName\": \"lord\",\r\n    \"bookingID\": \"20432966\",\r\n    \"email\": \"rahul.kumar@tui.co.uk\",\r\n    \"departureDate\": \"2024-06-08\",\r\n     \"contacts\": {\r\n        \"mobileNumber\": \"8623017888\"\r\n    },\r\n    \"problems\": [\r\n        {\r\n           \"problemID\": 1,\r\n            \"area\": \"flight\",\r\n            \"category\": \"checkin\",\r\n            \"subcategory\": \"airport\",\r\n            \"reason\": \"closed\",\r\n            \"description\": \"R-308,manual1\",\r\n            \"flightLeg\": \"inbound\"\r\n        }\r\n    ],\r\n    \"files\": []\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/customer/case-management/complaint-automation/submit-complaint/{{SM}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"customer",
+								"case-management",
+								"complaint-automation",
+								"submit-complaint",
+								"{{SM}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "booking details api",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var bodyData = pm.response.json();\r",
+									"\r",
+									"//--------------------Scenario 1:------------------------------//\r",
+									"/*verify the booking ID of request body & response body must match */\r",
+									"\r",
+									"// Step 1:-find booking id from  Respons body & storing in a variable\r",
+									"getcallbookingid=bodyData[0].originBookingId.id\r",
+									"\r",
+									"// Step 2:- Here we will verif the booking id passed in POST submit request body with  response of cae and booking api GET  Call  be similar.\r",
+									"pm.test(\"verify booking id of Req of submit api  & Res of booking api body must match\",function () {\r",
+									"    pm.expect(getcallbookingid).to.eql(pm.environment.get(\"Req_Booking_id\"));\r",
+									"     });\r",
+									"//--------------------Scenario 2:Departure Date ----------------------//\r",
+									"/*verify the Departure Date of request body & response body must match */\r",
+									"\r",
+									"// Step 1:-finding the outbund Dept Date from response & storing in a variable\r",
+									"depdate = bodyData[0].startDate\r",
+									"console.log(\"C4C outbound dep date in resonse body:\"+depdate)\r",
+									"\r",
+									"/* Step 2:-now verif the Departure Date passed in POST submit request cal with the response of GET booking Api call must be similar */\r",
+									"// split is used to make same dare format\r",
+									"\r",
+									"pm.test(\"outbound dep date is mact in submit and booking api\", function () {\r",
+									"        pm.expect(depdate.split('T')[0]).to.eql(pm.environment.get(\"Req_Dep_Date\"));\r",
+									"    });\r",
+									"   \r",
+									"   //--------------------Scenario :------------------------------//\r",
+									"\r",
+									"\r",
+									"\r",
+									"\r",
+									"\r",
+									"\r",
+									"\r",
+									"\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"\r",
+									"// took  1 min to craete both the case and reflect in c4c.(case should  remain at new)\r",
+									"// giving time period so get call executed after 1 min \r",
+									" setTimeout(function(){}, [60000]);\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{createcaseToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "ownerEntityId",
+								"value": "UK",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://test.api.tui/customer/customer-data-management/bookings/{{Req_Booking_id}}",
+							"protocol": "https",
+							"host": [
+								"test",
+								"api",
+								"tui"
+							],
+							"path": [
+								"customer",
+								"customer-data-management",
+								"bookings",
+								"{{Req_Booking_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "case api (n)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"//str =JSON.stringify(bodyData);\r",
+									"//var bodyData = pm.response.json();\r",
+									"\r",
+									"bodyData = JSON.parse(responseBody);\r",
+									"console.log(\"response data :\"+bodyData)\r",
+									"\r",
+									"//--------------------Scenario 1:booking ID-------------------------//\r",
+									"/*verify the booking ID between req.body of submit case api  & case api call */\r",
+									"// Step 1:-finding booking id from response  and storing in a variable\r",
+									"ResBookingId = bodyData[0].originBookingKey.id\r",
+									"console.log(\"C4C booking id in resonse body:\"+ResBookingId)\r",
+									"\r",
+									"/*Step 2:-verif the booking id passed in POST submit request & in response body of GET case Api Call must be match */\r",
+									"pm.test(\"verify booking id of Req & Res body must match\",function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData[0].originBookingKey.id).to.eql(pm.environment.get(\"Req_Booking_id\"));\r",
+									"});\r",
+									"// same above code in breif\r",
+									"    pm.test(\"Your test name\", function () {\r",
+									"        pm.expect(ResBookingId).to.eql(pm.environment.get(\"Req_Booking_id\"));\r",
+									"    });\r",
+									"\r",
+									"//------------Scenario 3:complaint case status-----------------------//\r",
+									"/*verify the comaint case status between submit case api & case api call  */\r",
+									"\r",
+									"// Step 1:-find the comaint case status from response & storing in a variable\r",
+									"Responsecasestatus= bodyData[0].status \r",
+									"console.log(\"C4C first complaint current case status is:\"+Responsecasestatus)\r",
+									"\r",
+									"//Step 2:-here we will verif the comaint case status store in POST call of submit case api under pre-req-script section with response body of GET case Api Call must be match*/\r",
+									"\r",
+									"    pm.test(\" complaint case status should match\", function () {\r",
+									"        pm.expect(Responsecasestatus).to.eql(pm.environment.get(\"User_define_Case_status\"));\r",
+									"    });\r",
+									"\r",
+									"// \r",
+									"//--------------------Scenario 4- case category-----------------//\r",
+									"/*verify the case category  between submit case api & case api call */\r",
+									"\r",
+									"// Step 1:-find the comaint case status from response & storing in a variable\r",
+									"Responsecasecategory = bodyData[0].category \r",
+									"\r",
+									"//Step 2:-here we will verif the complaint case category store in POST call of submit case api under pre-req-script with response body of GET case Api Call must be match*/\r",
+									"    pm.test(\"complaint case category is\", function () {\r",
+									"        pm.expect(Responsecasecategory).to.eql(pm.environment.get(\"User_define_Case_Cateogry\"));\r",
+									"    });\r",
+									"// ------------scenario -5-------------//\r",
+									"// verifying totalCompensation(with decimal) and resolutionAmountTotals (without decimal )should be equal if resolution created else totalCompensation will be 0 & resolutionAmountTotals will undefined \r",
+									"\r",
+									"// finding totalCompensation:--> with decimal value\r",
+									"Responsetotalcompensation = Math.round(bodyData[0].totalCompensation.amount) \r",
+									"console.log(\"splitted resol amnt:\"+Responsetotalcompensation); \r",
+									"\r",
+									"//resolutionAmountTotals :--> without decimal value\r",
+									"ResolutionAmountTotals=bodyData[0].resolutionAmountTotals\r",
+									"console.log(\"since no resolution so it undefined amnt:\"+ResolutionAmountTotals); \r",
+									"\r",
+									"// here we are comparing the totalCompensation  and resolutionAmountTotals \r",
+									"pm.test(\"totalCompensation should be 0 and  resolutionAmountTotals will be undefined amnt\", function () {\r",
+									"    pm.expect(Responsetotalcompensation).to.not.eql(ResolutionAmountTotals);\r",
+									"     console.log(\"totalCompensation and resolutionAmountTotals should differe due to resolutionAmountTotals id undefined amnt\") ;\r",
+									"});\r",
+									"\r",
+									"// ---scenario -6 total resolution amount at complaint i.e  main case level---------//\r",
+									"\r",
+									"// verifying total  amount or total Compensation (scenario 6 ) \r",
+									"// step 1-captuirng the  total Compensation amount at comaplint level from response \r",
+									"// finding totalCompensation:--> with decimal value\r",
+									"Responsetotalcompensation = Math.round(bodyData[0].totalCompensation.amount)\r",
+									"console.log(\"splitted resolution amount:\"+ Responsetotalcompensation); \r",
+									"\r",
+									"// step 2:- here we will verify the resolution amount at comaplint level should be equal to 0\r",
+									"    pm.test(\"total resolution amount at comaplint level\", function () {\r",
+									"if(Responsetotalcompensation==0){\r",
+									" console.log(\"Total resolution amount value must be 0:\"+Responsetotalcompensation) \r",
+									"}\r",
+									"else\r",
+									"{\r",
+									"    console.log(\"check why resolution got created\")\r",
+									"}\r",
+									"});\r",
+									"\r",
+									"// --------scenario -7:-resolution amount of complaint reason-------//\r",
+									"// not applicable \r",
+									"\r",
+									"\r",
+									"// ------------scenario -8-------------//\r",
+									"// verifying  webformId of SM    \r",
+									"\r",
+									"pm.test(\"webform id of  SM booking is\", function () {\r",
+									"     Reswebformid = bodyData[0].webformId\r",
+									"     console.log(Reswebformid)\r",
+									"    pm.expect(Reswebformid).to.eql(pm.environment.get(\"SM_booking_webformID\"));\r",
+									"});\r",
+									"\r",
+									"// ------------scenario -9-------------//\r",
+									"// verifying  the subject name \r",
+									"\r",
+									"pm.test(\"subject name main case for SM booking is\", function () {\r",
+									"     subjectname = bodyData[0].subject\r",
+									"     console.log(subjectname)\r",
+									"   pm.expect(subjectname).to.eql(pm.environment.get(\"complaint_subjectName\"));\r",
+									"});\r",
+									"\r",
+									"\r",
+									"\r",
+									"\r",
+									"\r",
+									"\r",
+									"\r",
+									"\r",
+									"\r",
+									"\r",
+									"\r",
+									"\r",
+									"\r",
+									"\r",
+									"// find the all complaint case id \r",
+									"// need to use array \r",
+									"\r",
+									"/*for (i=0;i<3;i++)\r",
+									"{\r",
+									"var idArray = bodyData[i].id;// passing path with index of main case\r",
+									"console.log(idArray)\r",
+									"};*/\r",
+									"//------------------status code ----------------------//\r",
+									"//status\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									" pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"// not required \r",
+									"//setTimeout(function(){}, [120000]);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "in",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{CaseApiToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/customer/case-management/complaint-cases?originalBookingId={{Req_Booking_id}}&ownerEntityId=UK",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"customer",
+								"case-management",
+								"complaint-cases"
+							],
+							"query": [
+								{
+									"key": "originalBookingId",
+									"value": "{{Req_Booking_id}}"
+								},
+								{
+									"key": "ownerEntityId",
+									"value": "UK"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Request resend any manual or automated or mix Copy",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"//status\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									" pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"\r",
+									"\r",
+									"\r",
+									"// ---------decalaring variable by using requst body data--------//\r",
+									"//var reqData=JSON.parse(pm.request.body.raw)\r",
+									"// storing request body data in json i.e in ref varaiable reqData\r",
+									"\r",
+									"\r",
+									"// ------------decalring our own variable locally -----------//\r",
+									"\r",
+									"// defining existing complaint case status - (scenario 99)\r",
+									"const userdefineExistCasestatus=\"new\"\r",
+									"\r",
+									"console.log(\"user defined existing case staus:\" +\" \"+ userdefineExistCasestatus)\r",
+									"pm.environment.set(\"User_define_exist_Case_status\",userdefineExistCasestatus);\r",
+									"\r",
+									"\r",
+									"\r",
+									"\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{createcaseToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "ownerEntityId",
+								"value": "UK",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"lastName\": \"lord\",\r\n    \"bookingID\": \"20432966\",\r\n    \"email\": \"rahul.kumar@tui.co.uk\",\r\n    \"departureDate\": \"2024-06-08\",\r\n     \"contacts\": {\r\n        \"mobileNumber\": \"8623017888\"\r\n    },\r\n    \"problems\": [\r\n        {\r\n            \"area\": \"flight\",\r\n            \"category\": \"guestservices\",\r\n            \"subcategory\": \"ife\",\r\n            \"reason\": \"unavailable\",\r\n            \"description\": \"fixed,UK SM,10 GBP-UKPay02\",\r\n            \"amount\": \"1\",\r\n            \"flightLeg\": \"outbound\"\r\n        },\r\n        {\r\n            \"area\": \"accommodationDestination\",\r\n            \"category\": \"room\",\r\n            \"subcategory\": \"poorStandards\",\r\n            \"reason\": \"accessabilityIssue\",\r\n            \"description\": \"manual1,row-163\",\r\n            \"hotelName\": \"Karbel Hotel\"\r\n        }\r\n    ],\r\n    \"files\": []\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/customer/case-management/complaint-automation/submit-complaint/UK",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"customer",
+								"case-management",
+								"complaint-automation",
+								"submit-complaint",
+								"UK"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "case api ( n to n)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"\r",
+									"//var bodyData = pm.response.json();\r",
+									"\r",
+									"bodyData = JSON.parse(responseBody);\r",
+									"console.log(\"response data :\"+bodyData)\r",
+									"\r",
+									"//----Scenario 99:existing complaint case status-----------//\r",
+									"/*verify the comaint case status of existing case  */\r",
+									"\r",
+									"// Step 1:-find the comaint case status from response & storing in a variable\r",
+									"Responsecasestatus= bodyData[0].status \r",
+									"console.log(\"C4C existing  case status is:\"+Responsecasestatus)\r",
+									"\r",
+									"//Step 2:-here we will verif the comaint case status store in POST call of submit case api under pre-req-script section with response body of GET case Api Call must be match*/\r",
+									"\r",
+									"    pm.test(\" complaint case status should match\", function () {\r",
+									"        pm.expect(Responsecasestatus).to.eql(pm.environment.get(\"User_define_exist_Case_status\"));\r",
+									"    });\r",
+									"\r",
+									"\r",
+									"// ------------scenario -8-------------//\r",
+									"// Re-verifying  webformId of SM    \r",
+									"\r",
+									"pm.test(\"webform id of  SM booking is\", function () {\r",
+									"     Reswebformid = bodyData[0].webformId\r",
+									"     console.log(Reswebformid)\r",
+									"    pm.expect(Reswebformid).to.eql(pm.environment.get(\"SM_booking_webformID\"));\r",
+									"});\r",
+									"\r",
+									"// ------------scenario -9-------------//\r",
+									"// Re-verifying  the subject name \r",
+									"\r",
+									"pm.test(\"subject name main case for SM booking is\", function () {\r",
+									"     subjectname = bodyData[0].subject\r",
+									"     console.log(subjectname)\r",
+									"   pm.expect(subjectname).to.eql(pm.environment.get(\"complaint_subjectName\"));\r",
+									"});\r",
+									"\r",
+									"\r",
+									"\r",
+									"\r",
+									"//------------------status code ----------------------//\r",
+									"//status\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									" pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"// took  1 min to craete both the case and reflect in c4c.(case should  remain at new)\r",
+									"// giving time period so get call execute after 1.20 min \r",
+									"// give time period bit more when muliplt reason passed \r",
+									" setTimeout(function(){}, [80000]);"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "in",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{CaseApiToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/customer/case-management/complaint-cases?originalBookingId={{Req_Booking_id}}&ownerEntityId=UK",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"customer",
+								"case-management",
+								"complaint-cases"
+							],
+							"query": [
+								{
+									"key": "originalBookingId",
+									"value": "{{Req_Booking_id}}"
+								},
+								{
+									"key": "ownerEntityId",
+									"value": "UK"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "SM- Non-Payment Automation- No existing case (Status=automated) Approve(5 min)-->Up-working Copy",
+			"item": [
+				{
+					"name": "Submit Case(POST Call) & Booking details(GETCall)  Token generator",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"bodyData = JSON.parse(responseBody)\r",
+									"value1 = bodyData.access_token\r",
+									"\r",
+									"console.log(value1)\r",
+									"pm.environment.set(\"createcaseToken\", value1);\r",
+									"\r",
+									"//status\r",
+									"\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"\r",
+									"    pm.response.to.have.status(200);\r",
+									"\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "oXgLCGeNnXKPWiMy",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "mf8TMcPxTsGqlb0sK8ffxEelieDmsi1v",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Connection",
+								"value": "keep-alive",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Basic bWY4VE1jUHhUc0dxbGIwc0s4ZmZ4RWVsaWVEbXNpMXY6b1hnTENHZU5uWEtQV2lNeQ==",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "grant_type",
+									"value": "client_credentials",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/oauth2/token",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"oauth2",
+								"token"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Case Details API Call - Token generator",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"bodyData = JSON.parse(responseBody)\r",
+									"value2 = bodyData.access_token\r",
+									"\r",
+									"console.log(value2)\r",
+									"pm.environment.set(\"CaseApiToken\", value2);\r",
+									"\r",
+									"//status\r",
+									"\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"\r",
+									"    pm.response.to.have.status(200);\r",
+									"\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "in",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							},
+							{
+								"key": "Authorization",
+								"value": "Basic aHRjYVV3QnBhb3dveFNHakJBYUE3SDkxQkNIWmlkWHA6WVZtUE13anNkd21sWkowWA=="
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "grant_type",
+									"value": "client_credentials",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://test.api.tui/oauth2/token",
+							"protocol": "https",
+							"host": [
+								"test",
+								"api",
+								"tui"
+							],
+							"path": [
+								"oauth2",
+								"token"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "case creation",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"//status\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									" pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"\r",
+									"\r",
+									"// ---------decalaring variable by using requst body data-----------//\r",
+									"\r",
+									"// storing request body data in json i.e in ref varaiable reqData\r",
+									"var reqData=JSON.parse(pm.request.body.raw)\r",
+									"\r",
+									"// booking Id (scenario 1)\r",
+									"ReqBookingId=reqData.bookingID\r",
+									"console.log(\"C4C booking id in request body:\" + ReqBookingId)\r",
+									"pm.environment.set(\"Req_Booking_id\", ReqBookingId);\r",
+									"\r",
+									"// dept date (scenario 2)\r",
+									"ReqDepDate=reqData.departureDate\r",
+									"console.log(\"Outbound Departure Date is request body:\" + ReqDepDate)\r",
+									"pm.environment.set(\"Req_Dep_Date\", ReqDepDate);\r",
+									"\r",
+									"// ------------decalring our own variable locally -----------//\r",
+									"\r",
+									"//const allCasestatus=[\"reopen\",\"new\",\"automated\",\"closed\"];// if i have define muliple staus here then how we can check --> we can compare by usomg loop with condition for time leave it \r",
+									"\r",
+									"// defining complaint case status - (scenario 3)\r",
+									"\r",
+									"const userdefineCasestatus=\"automatic\"\r",
+									"\r",
+									"console.log(\"user defined case staus:\" +\" \"+ userdefineCasestatus)\r",
+									"pm.environment.set(\"User_define_Case_status\", userdefineCasestatus);\r",
+									"\r",
+									"// defining case categroy (scenario 4 ) \r",
+									"//will compare this with case API Call\r",
+									" const UserdefineCasecateogry=\"source-market\"\r",
+									"pm.environment.set(\"User_define_Case_Cateogry\", UserdefineCasecateogry);\r",
+									"\r",
+									"//scenario 8:-webformId SM \r",
+									"const SMwebformId=\"CA_SM_UK\"\r",
+									"pm.environment.set(\"SM_booking_webformID\", SMwebformId)\r",
+									"\r",
+									"//scenario 9:- subject of main case SM/TDX :- TUI Customer Services\r",
+									"\r",
+									"const complaintsubject=\"TUI Customer Services\"\r",
+									"pm.environment.set(\"complaint_subjectName\", complaintsubject)\r",
+									"\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{createcaseToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "ownerEntityId",
+								"value": "{{SM}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"lastName\": \"Parr\",\r\n    \"bookingID\": \"16392803\",\r\n    \"email\": \"rahul.kumar@tui.co.uk\",\r\n    \"departureDate\": \"2022-11-27\",\r\n     \"contacts\": {\r\n        \"mobileNumber\": \"8623017888\"\r\n    },\r\n    \"problems\": [\r\n        {\r\n            \"problemID\": 1,\r\n            \"area\": \"accommodationDestination\",\r\n            \"category\": \"facilities\",\r\n            \"subcategory\": \"restaurantsBars\",\r\n            \"reason\": \"accessabilityIssue\",\r\n            \"description\": \"R-2,NP-Automation,C-56,approve\",\r\n            \"hotelName\": \"Karbel Hotel\"\r\n        }\r\n    ],\r\n    \"files\": []\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/customer/case-management/complaint-automation/submit-complaint/{{SM}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"customer",
+								"case-management",
+								"complaint-automation",
+								"submit-complaint",
+								"{{SM}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "booking api Copy",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var bodyData = pm.response.json();\r",
+									"\r",
+									"//--------------------Scenario 1:------------------------------//\r",
+									"/*verify the booking ID of request body & response body must match */\r",
+									"\r",
+									"// Step 1:-find booking id from  Respons body & storing in a variable\r",
+									"getcallbookingid=bodyData[0].originBookingId.id\r",
+									"\r",
+									"// Step 2:- Here we will verif the booking id passed in POST submit request body with  response of cae and booking api GET  Call  be similar.\r",
+									"pm.test(\"verify booking id of Req of submit api  & Res of booking api body must match\",function () {\r",
+									"    pm.expect(getcallbookingid).to.eql(pm.environment.get(\"Req_Booking_id\"));\r",
+									"     });\r",
+									"//--------------------Scenario 2:Departure Date ----------------------//\r",
+									"/*verify the Departure Date of request body & response body must match */\r",
+									"\r",
+									"// Step 1:-finding the outbund Dept Date from response & storing in a variable\r",
+									"depdate = bodyData[0].startDate\r",
+									"console.log(\"C4C outbound dep date in resonse body:\"+depdate)\r",
+									"\r",
+									"/* Step 2:-now verif the Departure Date passed in POST submit request cal with the response of GET booking Api call must be similar */\r",
+									"// split is used to make same dare format\r",
+									"\r",
+									"pm.test(\"outbound dep date is mact in submit and booking api\", function () {\r",
+									"        pm.expect(depdate.split('T')[0]).to.eql(pm.environment.get(\"Req_Dep_Date\"));\r",
+									"    });\r",
+									"   \r",
+									"   //--------------------Scenario :------------------------------//\r",
+									"\r",
+									"\r",
+									"\r",
+									"\r",
+									"\r",
+									"\r",
+									"\r",
+									"\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"// 35 second  firt main case and then at  1.13 min second  both case  and then at 1.48 min case moved to automated \r",
+									"\r",
+									"// case moved to automated took same time for both approv and reject reason but to moved to completed both took different time period like for approve =6 min and for reject =18 min\r",
+									"\r",
+									"// giving time period so get call executed after 2.1 min \r",
+									" setTimeout(function(){}, [60000]);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{createcaseToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "ownerEntityId",
+								"value": "UK",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://test.api.tui/customer/customer-data-management/bookings/{{Req_Booking_id}}",
+							"protocol": "https",
+							"host": [
+								"test",
+								"api",
+								"tui"
+							],
+							"path": [
+								"customer",
+								"customer-data-management",
+								"bookings",
+								"{{Req_Booking_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "case api",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"//str =JSON.stringify(bodyData);\r",
+									"//var bodyData = pm.response.json();\r",
+									"\r",
+									"bodyData = JSON.parse(responseBody);\r",
+									"console.log(\"response data :\"+bodyData)\r",
+									"\r",
+									"//--------------------Scenario 1:booking ID-------------------------//\r",
+									"/*verify the booking ID between req.body of submit case api  & case api call */\r",
+									"// Step 1:-finding booking id from response  and storing in a variable\r",
+									"ResBookingId = bodyData[0].originBookingKey.id\r",
+									"console.log(\"C4C booking id in resonse body:\"+ResBookingId)\r",
+									"\r",
+									"/*Step 2:-verif the booking id passed in POST submit request & in response body of GET case Api Call must be match */\r",
+									"pm.test(\"verify booking id of Req & Res body must match\",function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData[0].originBookingKey.id).to.eql(pm.environment.get(\"Req_Booking_id\"));\r",
+									"});\r",
+									"// same above code in breif\r",
+									"    pm.test(\"Your test name\", function () {\r",
+									"        pm.expect(ResBookingId).to.eql(pm.environment.get(\"Req_Booking_id\"));\r",
+									"    });\r",
+									"\r",
+									"//------------Scenario 3:complaint case status-----------------------//\r",
+									"/*verify the comaint case status between submit case api & case api call  */\r",
+									"\r",
+									"// Step 1:-find the comaint case status from response & storing in a variable\r",
+									"Responsecasestatus= bodyData[0].status \r",
+									"console.log(\"C4C first complaint current case status is:\"+Responsecasestatus)\r",
+									"\r",
+									"//Step 2:-here we will verif the comaint case status store in POST call of submit case api under pre-req-script section with response body of GET case Api Call must be match*/\r",
+									"\r",
+									"    pm.test(\" complaint case status should match\", function () {\r",
+									"        pm.expect(Responsecasestatus).to.eql(pm.environment.get(\"User_define_Case_status\"));\r",
+									"    });\r",
+									"\r",
+									"// \r",
+									"//--------------------Scenario 4- case category-----------------//\r",
+									"/*verify the case category  between submit case api & case api call */\r",
+									"\r",
+									"// Step 1:-find the comaint case status from response & storing in a variable\r",
+									"Responsecasecategory = bodyData[0].category \r",
+									"\r",
+									"//Step 2:-here we will verif the complaint case category store in POST call of submit case api under pre-req-script with response body of GET case Api Call must be match*/\r",
+									"    pm.test(\"complaint case category is\", function () {\r",
+									"        pm.expect(Responsecasecategory).to.eql(pm.environment.get(\"User_define_Case_Cateogry\"));\r",
+									"    });\r",
+									"\r",
+									"// ------------scenario -8-------------//\r",
+									"// verifying  webformId of SM    \r",
+									"\r",
+									"pm.test(\"webform id of  SM booking is\", function () {\r",
+									"     Reswebformid = bodyData[0].webformId\r",
+									"     console.log(Reswebformid)\r",
+									"    pm.expect(Reswebformid).to.eql(pm.environment.get(\"SM_booking_webformID\"));\r",
+									"});\r",
+									"\r",
+									"// ------------scenario -9-------------//\r",
+									"// verifying  the subject name \r",
+									"\r",
+									"pm.test(\"subject name main case for SM booking is\", function () {\r",
+									"     subjectname = bodyData[0].subject\r",
+									"     console.log(subjectname)\r",
+									"   pm.expect(subjectname).to.eql(pm.environment.get(\"complaint_subjectName\"));\r",
+									"});\r",
+									"\r",
+									"\r",
+									"\r",
+									"\r",
+									"\r",
+									"\r",
+									"\r",
+									"\r",
+									"\r",
+									"\r",
+									"\r",
+									"\r",
+									"\r",
+									"\r",
+									"\r",
+									"// find the all complaint case id \r",
+									"// need to use array \r",
+									"\r",
+									"/*for (i=0;i<3;i++)\r",
+									"{\r",
+									"var idArray = bodyData[i].id;// passing path with index of main case\r",
+									"console.log(idArray)\r",
+									"};*/\r",
+									"//------------------status code ----------------------//\r",
+									"//status\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									" pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"//setTimeout(function(){}, [120000]); --> Not required"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "in",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{CaseApiToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/customer/case-management/complaint-cases?originalBookingId={{Req_Booking_id}}&ownerEntityId=UK",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"customer",
+								"case-management",
+								"complaint-cases"
+							],
+							"query": [
+								{
+									"key": "originalBookingId",
+									"value": "{{Req_Booking_id}}"
+								},
+								{
+									"key": "ownerEntityId",
+									"value": "UK"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "TDX Non-Payment Automation- Exisiting case exisiting flow (status= automated --> closed--> Then new Cases creaed )Approve -->Up-working - run in demo Copy",
+			"item": [
+				{
+					"name": "Submit Case(POST Call) & Booking details(GETCall) - Token generator",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"bodyData = JSON.parse(responseBody)\r",
+									"value1 = bodyData.access_token\r",
+									"\r",
+									"console.log(value1)\r",
+									"pm.environment.set(\"createcaseToken\", value1);\r",
+									"\r",
+									"//status\r",
+									"\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"\r",
+									"    pm.response.to.have.status(200);\r",
+									"\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "oXgLCGeNnXKPWiMy",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "mf8TMcPxTsGqlb0sK8ffxEelieDmsi1v",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Connection",
+								"value": "keep-alive",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Basic bWY4VE1jUHhUc0dxbGIwc0s4ZmZ4RWVsaWVEbXNpMXY6b1hnTENHZU5uWEtQV2lNeQ==",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "grant_type",
+									"value": "client_credentials",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/oauth2/token",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"oauth2",
+								"token"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Case Details API Call)- Token generator",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"bodyData = JSON.parse(responseBody)\r",
+									"value2 = bodyData.access_token\r",
+									"\r",
+									"console.log(value2)\r",
+									"pm.environment.set(\"CaseApiToken\", value2);\r",
+									"\r",
+									"//status\r",
+									"\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"\r",
+									"    pm.response.to.have.status(200);\r",
+									"\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "in",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							},
+							{
+								"key": "Authorization",
+								"value": "Basic aHRjYVV3QnBhb3dveFNHakJBYUE3SDkxQkNIWmlkWHA6WVZtUE13anNkd21sWkowWA=="
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "grant_type",
+									"value": "client_credentials",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://test.api.tui/oauth2/token",
+							"protocol": "https",
+							"host": [
+								"test",
+								"api",
+								"tui"
+							],
+							"path": [
+								"oauth2",
+								"token"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Case creation",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"//status\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									" pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"\r",
+									"\r",
+									"// ---------decalaring variable by using requst body data-----------//\r",
+									"\r",
+									"// storing request body data in json i.e in ref varaiable reqData\r",
+									"var reqData=JSON.parse(pm.request.body.raw)\r",
+									"\r",
+									"// booking Id (scenario 1)\r",
+									"ReqBookingId=reqData.bookingID\r",
+									"console.log(\"C4C booking id in request body:\" + ReqBookingId)\r",
+									"pm.environment.set(\"Req_Booking_id\", ReqBookingId);\r",
+									"\r",
+									"// dept date (scenario 2)\r",
+									"ReqDepDate=reqData.departureDate\r",
+									"console.log(\"Outbound Departure Date is request body:\" + ReqDepDate)\r",
+									"pm.environment.set(\"Req_Dep_Date\", ReqDepDate);\r",
+									"\r",
+									"// ------------decalring our own variable locally -----------//\r",
+									"\r",
+									"//const allCasestatus=[\"reopen\",\"new\",\"automated\",\"closed\"];// if i have define muliple staus here then how we can check --> we can compare by usomg loop with condition for time leave it \r",
+									"\r",
+									"// defining complaint case status - (scenario 3)\r",
+									"\r",
+									"const userdefineCasestatus=\"closed\"\r",
+									"console.log(\"user defined case staus:\" +\" \"+ userdefineCasestatus)\r",
+									"pm.environment.set(\"User_define_Case_status\",userdefineCasestatus);\r",
+									"\r",
+									"// defining existing complaint case status - (scenario 99)\r",
+									"/*const userdefineExistCasestatus=\"updated\"\r",
+									"\r",
+									"console.log(\"user defined existing case staus:\" +\" \"+ userdefineExistCasestatus)\r",
+									"pm.environment.set(\"User_define_exist_Case_status\",userdefineExistCasestatus);*/\r",
+									"\r",
+									"// defining case categroy (scenario 4 ) \r",
+									"//will compare this with case API Call\r",
+									" const UserdefineCasecateogry=\"in-destination\"\r",
+									"pm.environment.set(\"User_define_Case_Cateogry\", UserdefineCasecateogry);\r",
+									"\r",
+									"//scenario 8:-webformId SM \r",
+									"const SMwebformId=\"CA_TDX_UK\"\r",
+									"pm.environment.set(\"SM_booking_webformID\", SMwebformId)\r",
+									"\r",
+									"//scenario 9:- subject of main case SM/TDX :- TUI Customer Services\r",
+									"\r",
+									"const complaintsubject=\"TUI Customer Services\"\r",
+									"pm.environment.set(\"complaint_subjectName\", complaintsubject)\r",
+									"\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{createcaseToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "ownerEntityId",
+								"value": "{{SM}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"lastName\": \"nairn\",\r\n    \"bookingID\": \"19789601\",\r\n    \"email\": \"rahul.kumar@tui.co.uk\",\r\n    \"departureDate\": \"2024-06-08\",\r\n     \"contacts\": {\r\n        \"mobileNumber\": \"8623017888\"\r\n    },\r\n    \"problems\": [\r\n        {\r\n            \"problemID\": 1,\r\n            \"area\": \"accommodationDestination\",\r\n            \"category\": \"facilities\",\r\n            \"subcategory\": \"restaurantsBars\",\r\n            \"reason\": \"openingHours\",\r\n            \"description\": \"R-2,NP-Automation,C-17,sending approve due toless time than reject reasons\",\r\n            \"hotelName\": \"Karbel Hotel\"\r\n        }\r\n    ],\r\n    \"files\": []\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/customer/case-management/complaint-automation/submit-complaint/{{SM}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"customer",
+								"case-management",
+								"complaint-automation",
+								"submit-complaint",
+								"{{SM}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "booking api Copy",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var bodyData = pm.response.json();\r",
+									"\r",
+									"//--------------------Scenario 1:------------------------------//\r",
+									"/*verify the booking ID of request body & response body must match */\r",
+									"\r",
+									"// Step 1:-find booking id from  Respons body & storing in a variable\r",
+									"getcallbookingid=bodyData[0].originBookingId.id\r",
+									"\r",
+									"// Step 2:- Here we will verif the booking id passed in POST submit request body with  response of cae and booking api GET  Call  be similar.\r",
+									"pm.test(\"verify booking id of Req of submit api  & Res of booking api body must match\",function () {\r",
+									"    pm.expect(getcallbookingid).to.eql(pm.environment.get(\"Req_Booking_id\"));\r",
+									"     });\r",
+									"//--------------------Scenario 2:Departure Date ----------------------//\r",
+									"/*verify the Departure Date of request body & response body must match */\r",
+									"\r",
+									"// Step 1:-finding the outbund Dept Date from response & storing in a variable\r",
+									"depdate = bodyData[0].startDate\r",
+									"console.log(\"C4C outbound dep date in resonse body:\"+depdate)\r",
+									"\r",
+									"/* Step 2:-now verif the Departure Date passed in POST submit request cal with the response of GET booking Api call must be similar */\r",
+									"// split is used to make same dare format\r",
+									"\r",
+									"pm.test(\"outbound dep date is mact in submit and booking api\", function () {\r",
+									"        pm.expect(depdate.split('T')[0]).to.eql(pm.environment.get(\"Req_Dep_Date\"));\r",
+									"    });\r",
+									"   \r",
+									"   //--------------------Scenario :------------------------------//\r",
+									"\r",
+									"\r",
+									"\r",
+									"\r",
+									"\r",
+									"\r",
+									"\r",
+									"\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"\r",
+									"// At 35 second  firt main case and then at  1.13 min second  both case  and then at 1.48 min case moved to automated and at 6 min case moved to completed\r",
+									"\r",
+									"// case moved to completed-->for reject 20 min and for approve 6 min\r",
+									"\r",
+									"// here reason is approve so giving time period 6 min so get call executed\r",
+									" setTimeout(function(){}, [140000]); // moved to close just in 2 min  so changing it 2.2 min\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{createcaseToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "ownerEntityId",
+								"value": "{{SM}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://test.api.tui/customer/customer-data-management/bookings/{{Req_Booking_id}}",
+							"protocol": "https",
+							"host": [
+								"test",
+								"api",
+								"tui"
+							],
+							"path": [
+								"customer",
+								"customer-data-management",
+								"bookings",
+								"{{Req_Booking_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "case api (C)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"//str =JSON.stringify(bodyData);\r",
+									"//var bodyData = pm.response.json();\r",
+									"\r",
+									"bodyData = JSON.parse(responseBody);\r",
+									"console.log(\"response data :\"+bodyData)\r",
+									"\r",
+									"//--------------------Scenario 1:booking ID-------------------------//\r",
+									"/*verify the booking ID between req.body of submit case api  & case api call */\r",
+									"// Step 1:-finding booking id from response  and storing in a variable\r",
+									"ResBookingId = bodyData[0].originBookingKey.id\r",
+									"console.log(\"C4C booking id in resonse body:\"+ResBookingId)\r",
+									"\r",
+									"/*Step 2:-verif the booking id passed in POST submit request & in response body of GET case Api Call must be match */\r",
+									"pm.test(\"verify booking id of Req & Res body must match\",function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData[0].originBookingKey.id).to.eql(pm.environment.get(\"Req_Booking_id\"));\r",
+									"});\r",
+									"// same above code in breif\r",
+									"    pm.test(\"Your test name\", function () {\r",
+									"        pm.expect(ResBookingId).to.eql(pm.environment.get(\"Req_Booking_id\"));\r",
+									"    });\r",
+									"\r",
+									"//------------Scenario 3:complaint case status-----------------------//\r",
+									"/*verify the comaint case status between submit case api & case api call  */\r",
+									"\r",
+									"// Step 1:-find the comaint case status from response & storing in a variable\r",
+									"Responsecasestatus= bodyData[0].status \r",
+									"console.log(\"C4C first complaint current case status is:\"+Responsecasestatus)\r",
+									"\r",
+									"//Step 2:-here we will verif the comaint case status store in POST call of submit case api under pre-req-script section with response body of GET case Api Call must be match*/\r",
+									"\r",
+									"    pm.test(\" complaint case status should match\", function () {\r",
+									"        pm.expect(Responsecasestatus).to.eql(pm.environment.get(\"User_define_Case_status\"));\r",
+									"    });\r",
+									"\r",
+									"// \r",
+									"//--------------------Scenario 4- case category-----------------//\r",
+									"/*verify the case category  between submit case api & case api call */\r",
+									"\r",
+									"// Step 1:-find the comaint case status from response & storing in a variable\r",
+									"Responsecasecategory = bodyData[0].category \r",
+									"\r",
+									"//Step 2:-here we will verif the complaint case category store in POST call of submit case api under pre-req-script with response body of GET case Api Call must be match*/\r",
+									"    pm.test(\"complaint case category is\", function () {\r",
+									"        pm.expect(Responsecasecategory).to.eql(pm.environment.get(\"User_define_Case_Cateogry\"));\r",
+									"    });\r",
+									"\r",
+									"\r",
+									"\r",
+									"// ------------scenario -8-------------//\r",
+									"// verifying  webformId of SM    \r",
+									"\r",
+									"pm.test(\"webform id of  SM booking is\", function () {\r",
+									"     Reswebformid = bodyData[0].webformId\r",
+									"     console.log(Reswebformid)\r",
+									"    pm.expect(Reswebformid).to.eql(pm.environment.get(\"SM_booking_webformID\"));\r",
+									"});\r",
+									"\r",
+									"// ------------scenario -9-------------//\r",
+									"// verifying  the subject name \r",
+									"\r",
+									"pm.test(\"subject name main case for SM booking is\", function () {\r",
+									"     subjectname = bodyData[0].subject\r",
+									"     console.log(subjectname)\r",
+									"   pm.expect(subjectname).to.eql(pm.environment.get(\"complaint_subjectName\"));\r",
+									"});\r",
+									"\r",
+									"\r",
+									"\r",
+									"\r",
+									"\r",
+									"\r",
+									"\r",
+									"\r",
+									"\r",
+									"\r",
+									"\r",
+									"\r",
+									"\r",
+									"\r",
+									"// find the all complaint case id \r",
+									"// need to use array \r",
+									"\r",
+									"/*for (i=0;i<3;i++)\r",
+									"{\r",
+									"var idArray = bodyData[i].id;// passing path with index of main case\r",
+									"console.log(idArray)\r",
+									"};*/\r",
+									"//------------------status code ----------------------//\r",
+									"//status\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									" pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"//setTimeout(function(){}, [60000]);-->not required"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "in",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{CaseApiToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/customer/case-management/complaint-cases?originalBookingId={{Req_Booking_id}}&ownerEntityId={{SM}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"customer",
+								"case-management",
+								"complaint-cases"
+							],
+							"query": [
+								{
+									"key": "originalBookingId",
+									"value": "{{Req_Booking_id}}"
+								},
+								{
+									"key": "ownerEntityId",
+									"value": "{{SM}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Case creation 2nd time",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"//status\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									" pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"\r",
+									"\r",
+									"// ---------decalaring variable by using requst body data--------//\r",
+									"//var reqData=JSON.parse(pm.request.body.raw)\r",
+									"// storing request body data in json i.e in ref varaiable reqData\r",
+									"\r",
+									"\r",
+									"// ------------decalring our own variable locally -----------//\r",
+									"\r",
+									"// defining existing complaint case status - (scenario 99)\r",
+									"// here for TDX existing will remanin at closed and new main & sub will be created\r",
+									"// so here we are decalring the varaible for existing & new case\r",
+									"\r",
+									"const userdefineExistCasestatus=\"closed\" // existing case\r",
+									"const userdefineExistCasestatustdx=\"new\" // new case\r",
+									"\r",
+									"console.log(\"user defined existing case staus:\" +\" \"+ userdefineExistCasestatus)\r",
+									"pm.environment.set(\"User_define_exist_Case_status\",userdefineExistCasestatus);\r",
+									"\r",
+									"console.log(\"user defined existing case staus:\" +\" \"+ userdefineExistCasestatus)\r",
+									"pm.environment.set(\"User_define_exist_Case_status_TDX\",userdefineExistCasestatustdx);\r",
+									"\r",
+									"\r",
+									"\r",
+									"\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{createcaseToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "ownerEntityId",
+								"value": "{{SM}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"lastName\": \"nairn\",\r\n    \"bookingID\": \"19789601\",\r\n    \"email\": \"rahul.kumar@tui.co.uk\",\r\n    \"departureDate\": \"2024-06-08\",\r\n     \"contacts\": {\r\n        \"mobileNumber\": \"8623017888\"\r\n    },\r\n    \"problems\": [\r\n        {\r\n            \"problemID\": 1,\r\n            \"area\": \"flight\",\r\n            \"category\": \"flightChangeCancellation\",\r\n            \"subcategory\": \"ec261Delay\",\r\n            \"reason\": \"delayedFlight\",\r\n            \"description\": \"TUI MM andSM-NP- automation,reject-snippet-77\",\r\n            \"flightLeg\": \"outbound\"\r\n        }\r\n    ],\r\n    \"files\": []\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/customer/case-management/complaint-automation/submit-complaint/{{SM}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"customer",
+								"case-management",
+								"complaint-automation",
+								"submit-complaint",
+								"{{SM}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "case api ( C to C and new  cases with status new)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"\r",
+									"//var bodyData = pm.response.json();\r",
+									"\r",
+									"bodyData = JSON.parse(responseBody);\r",
+									"console.log(\"response data :\"+bodyData)\r",
+									"\r",
+									"//----Scenario 99:existing complaint case status-----------//\r",
+									"/*verify the comaint case status of existing case  */\r",
+									"\r",
+									"// Step 1:-find the comaint case status from response & storing in a variable\r",
+									"//  case statu of  alreday created case\r",
+									"Responsecasestatus= bodyData[0].status \r",
+									"console.log(\"C4C existing  case status is:\"+Responsecasestatus)\r",
+									"\r",
+									"//Step 2:-here we will verif the comaint case status store in POST call of submit case api under pre-req-script section with response body of GET case Api Call must be match*/\r",
+									"\r",
+									"    pm.test(\" complaint case status should match\", function () {\r",
+									"        pm.expect(Responsecasestatus).to.eql(pm.environment.get(\"User_define_exist_Case_status\"));\r",
+									"    });\r",
+									"  \r",
+									"\r",
+									"// fetching & storing  case status of  newly created case\r",
+									"Responsecasestatus2= bodyData[1].status \r",
+									"console.log(\"C4C existing  case status is:\"+Responsecasestatus)\r",
+									"\r",
+									"    pm.test(\" complaint case status should match\", function () {\r",
+									"        pm.expect(Responsecasestatus2).to.eql(pm.environment.get(\"User_define_exist_Case_status_TDX\"));\r",
+									"    });\r",
+									"\r",
+									"\r",
+									"\r",
+									"\r",
+									"\r",
+									"\r",
+									"\r",
+									"\r",
+									"\r",
+									"\r",
+									"\r",
+									"\r",
+									"\r",
+									"\r",
+									"\r",
+									"\r",
+									"\r",
+									"\r",
+									"\r",
+									"// find the all complaint case id \r",
+									"// need to use array \r",
+									"\r",
+									"/*for (i=0;i<3;i++)\r",
+									"{\r",
+									"var idArray = bodyData[i].id;// passing path with index of main case\r",
+									"console.log(idArray)\r",
+									"};*/\r",
+									"//------------------status code ----------------------//\r",
+									"//status\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									" pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"// giving time period so that get call executed after 1 min (here case will not move to re-open , new case will be created)\r",
+									" setTimeout(function(){}, [60000]);"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "in",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{CaseApiToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/customer/case-management/complaint-cases?originalBookingId={{Req_Booking_id}}&ownerEntityId={{SM}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"customer",
+								"case-management",
+								"complaint-cases"
+							],
+							"query": [
+								{
+									"key": "originalBookingId",
+									"value": "{{Req_Booking_id}}"
+								},
+								{
+									"key": "ownerEntityId",
+									"value": "{{SM}}"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "SM/TDX segment missing i(Status=new-only main case created) Copy",
+			"item": [
+				{
+					"name": "Submit Case(POST Call) & Booking details(GETCall) - Token generator",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"bodyData = JSON.parse(responseBody)\r",
+									"value1 = bodyData.access_token\r",
+									"\r",
+									"console.log(value1)\r",
+									"pm.environment.set(\"createcaseToken\", value1);\r",
+									"\r",
+									"//status\r",
+									"\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"\r",
+									"    pm.response.to.have.status(200);\r",
+									"\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "oXgLCGeNnXKPWiMy",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "mf8TMcPxTsGqlb0sK8ffxEelieDmsi1v",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Connection",
+								"value": "keep-alive",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Basic bWY4VE1jUHhUc0dxbGIwc0s4ZmZ4RWVsaWVEbXNpMXY6b1hnTENHZU5uWEtQV2lNeQ==",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "grant_type",
+									"value": "client_credentials",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/oauth2/token",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"oauth2",
+								"token"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Case Details API Call )- Token generator",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"bodyData = JSON.parse(responseBody)\r",
+									"value2 = bodyData.access_token\r",
+									"\r",
+									"console.log(value2)\r",
+									"pm.environment.set(\"CaseApiToken\", value2);\r",
+									"\r",
+									"//status\r",
+									"\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"\r",
+									"    pm.response.to.have.status(200);\r",
+									"\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "in",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							},
+							{
+								"key": "Authorization",
+								"value": "Basic aHRjYVV3QnBhb3dveFNHakJBYUE3SDkxQkNIWmlkWHA6WVZtUE13anNkd21sWkowWA=="
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "grant_type",
+									"value": "client_credentials",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://test.api.tui/oauth2/token",
+							"protocol": "https",
+							"host": [
+								"test",
+								"api",
+								"tui"
+							],
+							"path": [
+								"oauth2",
+								"token"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Case creation",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"\r",
+									"\r",
+									"// ---------decalaring variable by using requst body data-----------//\r",
+									"\r",
+									"// storing request body data in json i.e in ref varaiable reqData\r",
+									"var reqData=JSON.parse(pm.request.body.raw)\r",
+									"\r",
+									"// booking Id (scenario 1)\r",
+									"ReqBookingId=reqData.bookingID\r",
+									"console.log(\"C4C booking id in request body:\" + ReqBookingId)\r",
+									"pm.environment.set(\"Req_Booking_id\", ReqBookingId);\r",
+									"\r",
+									"// dept date (scenario 2)\r",
+									"ReqDepDate=reqData.departureDate\r",
+									"console.log(\"Outbound Departure Date is request body:\" + ReqDepDate)\r",
+									"pm.environment.set(\"Req_Dep_Date\", ReqDepDate);\r",
+									"\r",
+									"// ------------decalring our own variable locally -----------//\r",
+									"\r",
+									"//const allCasestatus=[\"reopen\",\"new\",\"automated\",\"closed\"];// if i have define muliple staus here then how we can check --> we can compare by usomg loop with condition for time leave it \r",
+									"\r",
+									"// defining complaint case status - (scenario 3)\r",
+									"\r",
+									"const userdefineCasestatus=\"new\"\r",
+									"//const userdefineCasestatus=\"completed\"\r",
+									"\r",
+									"\r",
+									"console.log(\"user defined case staus:\" +\" \"+ userdefineCasestatus)\r",
+									"pm.environment.set(\"User_define_Case_status\", userdefineCasestatus);\r",
+									"\r",
+									"// defining case categroy (scenario 4 ) \r",
+									"//will compare this with case API Call\r",
+									" const UserdefineCasecateogry=\"source-market\"\r",
+									"pm.environment.set(\"User_define_Case_Cateogry\", UserdefineCasecateogry);\r",
+									"\r",
+									"// scenario 7\r",
+									"\r",
+									"//scenario 8:-webformId SM \r",
+									"const SMwebformId=\"CA_SM_UK\"\r",
+									"pm.environment.set(\"SM_booking_webformID\", SMwebformId)\r",
+									"\r",
+									"//scenario 9:- subject of main case SM/TDX :- TUI Customer Services\r",
+									"\r",
+									"const complaintsubject=\"TUI Customer Services\"\r",
+									"pm.environment.set(\"complaint_subjectName\", complaintsubject)\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"//status\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									" pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{createcaseToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "ownerEntityId",
+								"value": "UK",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n     \"lastName\": \"Parr\",\r\n    \"bookingID\": \"16392801\",\r\n    \"email\": \"rahul.kumar@tui.co.uk\",\r\n    \"departureDate\": \"2022-11-27\",\r\n     \"contacts\": {\r\n        \"mobileNumber\": \"8623017888\"\r\n    },\r\n    \"problems\": [\r\n        {\r\n            \"problemID\": 1,\r\n            \"area\": \"accommodationDestination\",\r\n            \"category\": \"facilities\",\r\n            \"subcategory\": \"restaurantsBars\",\r\n            \"reason\": \"accessabilityIssue\",\r\n            \"description\": \"manual\",\r\n            \"hotelName\": \"Karbel Hotel\"\r\n        }\r\n    ],\r\n    \"files\": []\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/customer/case-management/complaint-automation/submit-complaint/UK",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"customer",
+								"case-management",
+								"complaint-automation",
+								"submit-complaint",
+								"UK"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "booking api Copy",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var bodyData = pm.response.json();\r",
+									"\r",
+									"//--------------------Scenario 1:------------------------------//\r",
+									"/*verify the booking ID of request body & response body must match */\r",
+									"\r",
+									"// Step 1:-find booking id from  Respons body & storing in a variable\r",
+									"getcallbookingid=bodyData[0].originBookingId.id\r",
+									"\r",
+									"// Step 2:- Here we will verif the booking id passed in POST submit request body with  response of cae and booking api GET  Call  be similar.\r",
+									"pm.test(\"verify booking id of Req of submit api  & Res of booking api body must match\",function () {\r",
+									"    pm.expect(getcallbookingid).to.eql(pm.environment.get(\"Req_Booking_id\"));\r",
+									"     });\r",
+									"//--------------------Scenario 2:Departure Date ----------------------//\r",
+									"/*verify the Departure Date of request body & response body must match */\r",
+									"\r",
+									"// Step 1:-finding the outbund Dept Date from response & storing in a variable\r",
+									"depdate = bodyData[0].startDate\r",
+									"console.log(\"C4C outbound dep date in resonse body:\"+depdate)\r",
+									"\r",
+									"/* Step 2:-now verif the Departure Date passed in POST submit request cal with the response of GET booking Api call must be similar */\r",
+									"// split is used to make same dare format\r",
+									"\r",
+									"pm.test(\"outbound dep date is mact in submit and booking api\", function () {\r",
+									"        pm.expect(depdate.split('T')[0]).to.eql(pm.environment.get(\"Req_Dep_Date\"));\r",
+									"    });\r",
+									"   \r",
+									"   //--------------------Scenario :------------------------------//\r",
+									"\r",
+									"\r",
+									"\r",
+									"\r",
+									"\r",
+									"\r",
+									"\r",
+									"\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"\r",
+									"// 35 second  firt main case and then at  1.13 min second  both case  and then at 1.48 min case moved to automated\r",
+									"\r",
+									"// giving time period so get call executed after 2.20 min \r",
+									" setTimeout(function(){}, [50000]);\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{createcaseToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "ownerEntityId",
+								"value": "UK",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://test.api.tui/customer/customer-data-management/bookings/{{Req_Booking_id}}",
+							"protocol": "https",
+							"host": [
+								"test",
+								"api",
+								"tui"
+							],
+							"path": [
+								"customer",
+								"customer-data-management",
+								"bookings",
+								"{{Req_Booking_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "case api",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"//str =JSON.stringify(bodyData);\r",
+									"//var bodyData = pm.response.json();\r",
+									"\r",
+									"bodyData = JSON.parse(responseBody);\r",
+									"console.log(\"response data :\"+bodyData)\r",
+									"\r",
+									"//--------------------Scenario 1:booking ID-------------------------//\r",
+									"/*verify the booking ID between req.body of submit case api  & case api call */\r",
+									"// Step 1:-finding booking id from response  and storing in a variable\r",
+									"ResBookingId = bodyData[0].originBookingKey.id\r",
+									"console.log(\"C4C booking id in resonse body:\"+ResBookingId)\r",
+									"\r",
+									"/*Step 2:-verif the booking id passed in POST submit request & in response body of GET case Api Call must be match */\r",
+									"pm.test(\"verify booking id of Req & Res body must match\",function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData[0].originBookingKey.id).to.eql(pm.environment.get(\"Req_Booking_id\"));\r",
+									"});\r",
+									"// same above code in breif\r",
+									"    pm.test(\"Your test name\", function () {\r",
+									"        pm.expect(ResBookingId).to.eql(pm.environment.get(\"Req_Booking_id\"));\r",
+									"    });\r",
+									"\r",
+									"//------------Scenario 3:complaint case status-----------------------//\r",
+									"/*verify the comaint case status between submit case api & case api call  */\r",
+									"\r",
+									"// Step 1:-find the comaint case status from response & storing in a variable\r",
+									"Responsecasestatus= bodyData[0].status \r",
+									"console.log(\"C4C first complaint current case status is:\"+Responsecasestatus)\r",
+									"\r",
+									"//Step 2:-here we will verif the comaint case status store in POST call of submit case api under pre-req-script section with response body of GET case Api Call must be match*/\r",
+									"\r",
+									"    pm.test(\" complaint case status should match\", function () {\r",
+									"        pm.expect(Responsecasestatus).to.eql(pm.environment.get(\"User_define_Case_status\"));\r",
+									"    });\r",
+									"\r",
+									"// \r",
+									"//--------------------Scenario 4- case category-----------------//\r",
+									"/*verify the case category  between submit case api & case api call */\r",
+									"\r",
+									"// Step 1:-find the comaint case status from response & storing in a variable\r",
+									"Responsecasecategory = bodyData[0].category \r",
+									"\r",
+									"//Step 2:-here we will verif the complaint case category store in POST call of submit case api under pre-req-script with response body of GET case Api Call must be match*/\r",
+									"    pm.test(\"complaint case category is\", function () {\r",
+									"        pm.expect(Responsecasecategory).to.eql(pm.environment.get(\"User_define_Case_Cateogry\"));\r",
+									"    });\r",
+									"// ---scenario -5 ==> can't test when resolution creation failed due to below reason---//\r",
+									"\r",
+									"// verifying totalCompensation(with decimal) and resolutionAmountTotals (without decimal )should be equal\r",
+									"\r",
+									"//Reason:--> resolutionAmountTotals will not display any data if resolution creation failed  and also resolution amount of complaint reason will also not display hence test script will since JSON path will be wronge --> check JSON path and modify the script \r",
+									"//and we will not able to compare the totalCompensation  and resolutionAmountTotals\r",
+									"\r",
+									"\r",
+									"// ---scenario -6 total Compensation at complaint level--------//\r",
+									"\r",
+									"// verifying  total resolution amount at complaint i.e  main case level-(scenario 6 ) \r",
+									"// step 1-captuirng the  total resolution amount at comaplint level from response \r",
+									"\r",
+									"Responsetotalcompensation = Math.round(bodyData[0].totalCompensation.amount)\r",
+									"console.log(\"TotalCompensation :\"+Responsetotalcompensation); \r",
+									"\r",
+									"// step 2:- here we will verify the resolution amount at comaplint level should equal to 0\r",
+									"    pm.test(\"total resolution amount at comaplint level\", function () {\r",
+									"if(Responsetotalcompensation==0){\r",
+									" console.log(\"Total resolution amount value is 0:\"+Responsetotalcompensation) \r",
+									"}\r",
+									"else\r",
+									"{\r",
+									"    console.log(\"resolution had not created check the error in C4C\")\r",
+									"}\r",
+									"});\r",
+									"\r",
+									"// --------scenario -7: not testable d------//\r",
+									"\r",
+									"// Reason-->  resolution amount of complaint reason can be tested beacuse complaint reason it self will not created and in response complaintReasons section will be expanded \r",
+									"\r",
+									"\r",
+									"\r",
+									"// --------scenario -10:-when complaint reason is not created due to segment missing\r",
+									"\r",
+									"// verify complaint reason is not created when segment is missing on booking\r",
+									"\r",
+									"complaintreasons = bodyData[0].complaintReasons //--> when complaint reason is not created \r",
+									"console.log(complaintreasons)\r",
+									"// step 2:- here we will verify that complaint reason section will not expand and it return null in  response body\r",
+									" pm.test(\" verify when complaint reason is not created due to segment missing\", function () {\r",
+									"if(complaintreasons==0){\r",
+									" console.log(\"complaint reason is not created due to segment missing:\"+complaintreasons)   \r",
+									"}\r",
+									"else\r",
+									"{\r",
+									"        console.log(\"Why complaint reason created check the C4C?\")\r",
+									"\r",
+									"}\r",
+									"});\r",
+									"\r",
+									"// ------------scenario -8-------------//\r",
+									"// verifying  webformId of SM    \r",
+									"\r",
+									"pm.test(\"webform id of  SM booking is\", function () {\r",
+									"     Reswebformid = bodyData[0].webformId\r",
+									"     console.log(Reswebformid)\r",
+									"    pm.expect(Reswebformid).to.eql(pm.environment.get(\"SM_booking_webformID\"));\r",
+									"});\r",
+									"\r",
+									"// ------------scenario -9-------------//\r",
+									"// verifying  the subject name \r",
+									"\r",
+									"pm.test(\"subject name main case for SM booking is\", function () {\r",
+									"     subjectname = bodyData[0].subject\r",
+									"     console.log(subjectname)\r",
+									"   pm.expect(subjectname).to.eql(pm.environment.get(\"complaint_subjectName\"));\r",
+									"});\r",
+									"\r",
+									"\r",
+									"\r",
+									"\r",
+									"\r",
+									"\r",
+									"\r",
+									"\r",
+									"\r",
+									"// find the all complaint case id \r",
+									"// need to use array \r",
+									"\r",
+									"/*for (i=0;i<3;i++)\r",
+									"{\r",
+									"var idArray = bodyData[i].id;// passing path with index of main case\r",
+									"console.log(idArray)\r",
+									"};*/\r",
+									"//------------------status code ----------------------//\r",
+									"//status\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									" pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"//setTimeout(function(){}, [60000]);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "in",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{CaseApiToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/customer/case-management/complaint-cases?originalBookingId={{Req_Booking_id}}&ownerEntityId=UK",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"customer",
+								"case-management",
+								"complaint-cases"
+							],
+							"query": [
+								{
+									"key": "originalBookingId",
+									"value": "{{Req_Booking_id}}"
+								},
+								{
+									"key": "ownerEntityId",
+									"value": "UK"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "currency mismatch Requested Payment Automation with incorrect currency(Status=new)",
+			"item": [
+				{
+					"name": "Submit Case(POST Call) & Booking details(GETCall)- Token generator",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"bodyData = JSON.parse(responseBody)\r",
+									"value1 = bodyData.access_token\r",
+									"\r",
+									"console.log(value1)\r",
+									"pm.environment.set(\"createcaseToken\", value1);\r",
+									"\r",
+									"//status\r",
+									"\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"\r",
+									"    pm.response.to.have.status(200);\r",
+									"\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "oXgLCGeNnXKPWiMy",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "mf8TMcPxTsGqlb0sK8ffxEelieDmsi1v",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Connection",
+								"value": "keep-alive",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Basic bWY4VE1jUHhUc0dxbGIwc0s4ZmZ4RWVsaWVEbXNpMXY6b1hnTENHZU5uWEtQV2lNeQ==",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "grant_type",
+									"value": "client_credentials",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/oauth2/token",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"oauth2",
+								"token"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Case Details API Call)- Token generator",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"bodyData = JSON.parse(responseBody)\r",
+									"value2 = bodyData.access_token\r",
+									"\r",
+									"console.log(value2)\r",
+									"pm.environment.set(\"CaseApiToken\", value2);\r",
+									"\r",
+									"//status\r",
+									"\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"\r",
+									"    pm.response.to.have.status(200);\r",
+									"\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "in",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							},
+							{
+								"key": "Authorization",
+								"value": "Basic aHRjYVV3QnBhb3dveFNHakJBYUE3SDkxQkNIWmlkWHA6WVZtUE13anNkd21sWkowWA=="
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "grant_type",
+									"value": "client_credentials",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://test.api.tui/oauth2/token",
+							"protocol": "https",
+							"host": [
+								"test",
+								"api",
+								"tui"
+							],
+							"path": [
+								"oauth2",
+								"token"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "case creation",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"\r",
+									"\r",
+									"// ---------decalaring variable by using requst body data-----------//\r",
+									"\r",
+									"// storing request body data in json i.e in ref varaiable reqData\r",
+									"var reqData=JSON.parse(pm.request.body.raw)\r",
+									"\r",
+									"// booking Id (scenario 1)\r",
+									"ReqBookingId=reqData.bookingID\r",
+									"console.log(\"C4C booking id in request body:\" + ReqBookingId)\r",
+									"pm.environment.set(\"Req_Booking_id\", ReqBookingId);\r",
+									"\r",
+									"// dept date (scenario 2)\r",
+									"ReqDepDate=reqData.departureDate\r",
+									"console.log(\"Outbound Departure Date is request body:\" + ReqDepDate)\r",
+									"pm.environment.set(\"Req_Dep_Date\", ReqDepDate);\r",
+									"\r",
+									"// ------------decalring our own variable locally -----------//\r",
+									"\r",
+									"//const allCasestatus=[\"reopen\",\"new\",\"automated\",\"closed\"];// if i have define muliple staus here then how we can check --> we can compare by usomg loop with condition for time leave it \r",
+									"\r",
+									"// defining complaint case status - (scenario 3)\r",
+									"\r",
+									"const userdefineCasestatus=\"new\"\r",
+									"//const userdefineCasestatus=\"completed\"\r",
+									"\r",
+									"\r",
+									"console.log(\"user defined case staus:\" +\" \"+ userdefineCasestatus)\r",
+									"pm.environment.set(\"User_define_Case_status\", userdefineCasestatus);\r",
+									"\r",
+									"// defining case categroy (scenario 4 ) \r",
+									"//will compare this with case API Call\r",
+									" const UserdefineCasecateogry=\"in-destination\"\r",
+									"pm.environment.set(\"User_define_Case_Cateogry\", UserdefineCasecateogry);\r",
+									"\r",
+									"// defining total resolution amount at comaplint level-->(scenario 6 ) \r",
+									" // totalresolution=true\r",
+									" //pm.environment.set(\"resolutionamount\", totalresolution)\r",
+									"\r",
+									"// scenario 7\r",
+									"\r",
+									"//scenario 8:-webformId SM \r",
+									"const SMwebformId=\"CA_TDX_UK\"\r",
+									"pm.environment.set(\"SM_booking_webformID\", SMwebformId)\r",
+									"\r",
+									"//scenario 9:- subject of main case SM/TDX :- TUI Customer Services\r",
+									"\r",
+									"const complaintsubject=\"TUI Customer Services\"\r",
+									"pm.environment.set(\"complaint_subjectName\", complaintsubject)\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"//status\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									" pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{createcaseToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "ownerEntityId",
+								"value": "UK",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n     \"lastName\": \"gibbs\",\r\n    \"bookingID\": \"19796858\",\r\n    \"email\": \"rahul.kumar@tui.co.uk\",\r\n    \"departureDate\": \"2024-01-25\",\r\n    \"contacts\": {\r\n        \"mobileNumber\": \"8623017888\"\r\n    },\r\n    \"problems\": [\r\n        {\r\n            \"problemID\": 1,\r\n            \"area\": \"excursionTransferExtras\",\r\n            \"category\": \"attractionTicketsExcursions\",\r\n            \"subcategory\": \"additionalChargesAttractions\",\r\n            \"description\": \"SM,TDX(UKPay15)->Payment currency and booking currency do not match\",\r\n            \"excursionName\": \"test\",\r\n            \"amount\": \"1\",\r\n            \"requestedRefundAmount\": 60,\r\n            \"requestedRefundCurrency\": \"EUR\"//GBP\r\n        }\r\n    ],\r\n    \"files\": [\r\n        {\r\n            \"key\": \"DE/254e27dd-b877-417c-8912-a508da0abaaa\",\r\n            \"name\": \"this file is  present in DB or valid file\"\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/customer/case-management/complaint-automation/submit-complaint/UK",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"customer",
+								"case-management",
+								"complaint-automation",
+								"submit-complaint",
+								"UK"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "booking api Copy",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var bodyData = pm.response.json();\r",
+									"\r",
+									"//--------------------Scenario 1:------------------------------//\r",
+									"/*verify the booking ID of request body & response body must match */\r",
+									"\r",
+									"// Step 1:-find booking id from  Respons body & storing in a variable\r",
+									"getcallbookingid=bodyData[0].originBookingId.id\r",
+									"\r",
+									"// Step 2:- Here we will verif the booking id passed in POST submit request body with  response of cae and booking api GET  Call  be similar.\r",
+									"pm.test(\"verify booking id of Req of submit api  & Res of booking api body must match\",function () {\r",
+									"    pm.expect(getcallbookingid).to.eql(pm.environment.get(\"Req_Booking_id\"));\r",
+									"     });\r",
+									"//--------------------Scenario 2:Departure Date ----------------------//\r",
+									"/*verify the Departure Date of request body & response body must match */\r",
+									"\r",
+									"// Step 1:-finding the outbund Dept Date from response & storing in a variable\r",
+									"depdate = bodyData[0].startDate\r",
+									"console.log(\"C4C outbound dep date in resonse body:\"+depdate)\r",
+									"\r",
+									"/* Step 2:-now verif the Departure Date passed in POST submit request cal with the response of GET booking Api call must be similar */\r",
+									"// split is used to make same dare format\r",
+									"\r",
+									"pm.test(\"outbound dep date is mact in submit and booking api\", function () {\r",
+									"        pm.expect(depdate.split('T')[0]).to.eql(pm.environment.get(\"Req_Dep_Date\"));\r",
+									"    });\r",
+									"   \r",
+									"   //--------------------Scenario :------------------------------//\r",
+									"\r",
+									"\r",
+									"\r",
+									"\r",
+									"\r",
+									"\r",
+									"\r",
+									"\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"\r",
+									"// 35 second  firt main case and then at  1.13 min second  both case  and then at 1.48 min case moved to automated\r",
+									"\r",
+									"// giving time period so get call executed after 2.20 min \r",
+									" setTimeout(function(){}, [140000]);\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{createcaseToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "ownerEntityId",
+								"value": "UK",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://test.api.tui/customer/customer-data-management/bookings/{{Req_Booking_id}}",
+							"protocol": "https",
+							"host": [
+								"test",
+								"api",
+								"tui"
+							],
+							"path": [
+								"customer",
+								"customer-data-management",
+								"bookings",
+								"{{Req_Booking_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "case api",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"//str =JSON.stringify(bodyData);\r",
+									"//var bodyData = pm.response.json();\r",
+									"\r",
+									"bodyData = JSON.parse(responseBody);\r",
+									"console.log(\"response data :\"+bodyData)\r",
+									"\r",
+									"//--------------------Scenario 1:booking ID-------------------------//\r",
+									"/*verify the booking ID between req.body of submit case api  & case api call */\r",
+									"// Step 1:-finding booking id from response  and storing in a variable\r",
+									"ResBookingId = bodyData[0].originBookingKey.id\r",
+									"console.log(\"C4C booking id in resonse body:\"+ResBookingId)\r",
+									"\r",
+									"/*Step 2:-verif the booking id passed in POST submit request & in response body of GET case Api Call must be match */\r",
+									"pm.test(\"verify booking id of Req & Res body must match\",function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData[0].originBookingKey.id).to.eql(pm.environment.get(\"Req_Booking_id\"));\r",
+									"});\r",
+									"// same above code in breif\r",
+									"    pm.test(\"Your test name\", function () {\r",
+									"        pm.expect(ResBookingId).to.eql(pm.environment.get(\"Req_Booking_id\"));\r",
+									"    });\r",
+									"\r",
+									"//------------Scenario 3:complaint case status-----------------------//\r",
+									"/*verify the comaint case status between submit case api & case api call  */\r",
+									"\r",
+									"// Step 1:-find the comaint case status from response & storing in a variable\r",
+									"Responsecasestatus= bodyData[0].status \r",
+									"console.log(\"C4C first complaint current case status is:\"+Responsecasestatus)\r",
+									"\r",
+									"//Step 2:-here we will verif the comaint case status store in POST call of submit case api under pre-req-script section with response body of GET case Api Call must be match*/\r",
+									"\r",
+									"    pm.test(\" complaint case status should match\", function () {\r",
+									"        pm.expect(Responsecasestatus).to.eql(pm.environment.get(\"User_define_Case_status\"));\r",
+									"    });\r",
+									"\r",
+									"// \r",
+									"//--------------------Scenario 4- case category-----------------//\r",
+									"/*verify the case category  between submit case api & case api call */\r",
+									"\r",
+									"// Step 1:-find the comaint case status from response & storing in a variable\r",
+									"Responsecasecategory = bodyData[0].category \r",
+									"\r",
+									"//Step 2:-here we will verif the complaint case category store in POST call of submit case api under pre-req-script with response body of GET case Api Call must be match*/\r",
+									"    pm.test(\"complaint case category is\", function () {\r",
+									"        pm.expect(Responsecasecategory).to.eql(pm.environment.get(\"User_define_Case_Cateogry\"));\r",
+									"    });\r",
+									"// --------scenario -5 ==> cant test when resolution creation failed due to below reason ----------//\r",
+									"// refer TDX manual case api test for this scenario \r",
+									"\r",
+									"// ---scenario -6 total Compensation at complaint level--------//\r",
+									"\r",
+									"// verifying  total resolution amount at complaint i.e  main case level-(scenario 6 ) \r",
+									"// step 1-captuirng the  total resolution amount at comaplint level from response \r",
+									"\r",
+									"Responsetotalcompensation = Math.round(bodyData[0].totalCompensation.amount)\r",
+									"console.log(\"TotalCompensation :\"+Responsetotalcompensation); \r",
+									"\r",
+									"// step 2:- here we will verify the resolution amount at comaplint level should equal to 0\r",
+									"    pm.test(\"total resolution amount at comaplint level\", function () {\r",
+									"if(Responsetotalcompensation==0){\r",
+									" console.log(\"resolution had not created check the error in C4C\") \r",
+									"}\r",
+									"else\r",
+									"{\r",
+									"    console.log(\"resolution had not created check the error in C4C\")\r",
+									"}\r",
+									"});\r",
+									"\r",
+									"// --------scenario -7:-resolution amount of complaint reason -------//\r",
+									"\r",
+									"// verifying  resolution amount of complaint reason should not define-- (scenario 7 ) \r",
+									"\r",
+									"// step 1-captuirng the  resolution amount of complaint reason from response \r",
+									"//RescompReasonsresolution = bodyData[0].complaintReasons[0].resolutions[0].resolutionAmount.amount; //--> when resolution  created\r",
+									"RescompReasonsresolution = bodyData[0].complaintReasons[0].resolutions //--> when resolution is not created\r",
+									"//RescompReasonsresolution = bodyData[0].complaintReasons //-->when complaint reason itself not created\r",
+									"\r",
+									"// step 2:- here we will verify the resolution amount at comaplint reasons will not define means no resolution section will not expand on response body\r",
+									" pm.test(\" verify resolution amount at sub case level\", function () {\r",
+									"if(RescompReasonsresolution==0){\r",
+									" console.log(\"resolution amount at complaint reason should not created due to currency mismatch:\"+RescompReasonsresolution)   \r",
+									"}\r",
+									"else\r",
+									"{\r",
+									"    console.log(\"why resolution created check the C4C\")\r",
+									"}\r",
+									"});\r",
+									"\r",
+									"\r",
+									"\r",
+									"// ------------scenario -8-------------//\r",
+									"// verifying  webformId of SM    \r",
+									"\r",
+									"pm.test(\"webform id of  SM booking is\", function () {\r",
+									"     Reswebformid = bodyData[0].webformId\r",
+									"     console.log(Reswebformid)\r",
+									"    pm.expect(Reswebformid).to.eql(pm.environment.get(\"SM_booking_webformID\"));\r",
+									"});\r",
+									"\r",
+									"// ------------scenario -9-------------//\r",
+									"// verifying  the subject name \r",
+									"\r",
+									"pm.test(\"subject name main case for SM booking is\", function () {\r",
+									"     subjectname = bodyData[0].subject\r",
+									"     console.log(subjectname)\r",
+									"   pm.expect(subjectname).to.eql(pm.environment.get(\"complaint_subjectName\"));\r",
+									"});\r",
+									"\r",
+									"\r",
+									"\r",
+									"//------------------status code ----------------------//\r",
+									"//status\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									" pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"//setTimeout(function(){}, [60000]);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "in",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{CaseApiToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/customer/case-management/complaint-cases?originalBookingId={{Req_Booking_id}}&ownerEntityId=UK",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"customer",
+								"case-management",
+								"complaint-cases"
+							],
+							"query": [
+								{
+									"key": "originalBookingId",
+									"value": "{{Req_Booking_id}}"
+								},
+								{
+									"key": "ownerEntityId",
+									"value": "UK"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
